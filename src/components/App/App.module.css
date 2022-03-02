@@ -1,0 +1,40 @@
+.appWrapper{
+    height:100vh;
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.header{
+    width: auto;
+    height: 80px;
+    background-color: rgb(165, 165, 165);
+}
+
+.body{
+    width: auto;
+    background-color: rgb(168, 255, 255);
+    height: 100%;
+    display: grid;
+    grid-template-areas: 
+    'random'
+    'items';
+    grid-template-rows: 350px auto;
+
+    
+
+}
+
+.itemRandom{
+    background-color: rgb(185, 185, 185);
+    grid-area: 'random';
+    /* height: 200px; */
+}
+
+
+.items{
+    background-color: rgb(236, 163, 163);
+    grid-area: 'items';
+    /* height: 100%; */
+}
