@@ -1,4 +1,6 @@
-import styles from './ItemList.module.css'
+import styles from './ItemList.module.css';
+import globalStyles from '../../style/globalStyles.module.css';
+import { Box } from '@mui/material';
 
 const ItemList = () => {
     return (
@@ -6,12 +8,12 @@ const ItemList = () => {
             <div className={styles.listHeader}>
                 ItemList
             </div>
-            <div className={styles.list}>
+            <Box className={`${styles.list} ${globalStyles.basicBox}`}>
                 <div className={styles.listItems}>
                     item1
                     item 2
                 </div>
-            </div>
+            </Box>
             
         </div>
     )

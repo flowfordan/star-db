@@ -8,11 +8,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-maindiv {
-  min-height: 1200px;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+

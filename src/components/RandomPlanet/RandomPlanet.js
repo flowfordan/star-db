@@ -1,4 +1,7 @@
 import styles from './RandomPlanet.module.css'
+import { Box } from '@mui/material';
+import globalStyles from '../../style/globalStyles.module.css'
+
 
 const RandomPlanet = () => {
     return (
@@ -6,7 +9,7 @@ const RandomPlanet = () => {
             <div className={styles.cardHeader}>
                 Random Planet
             </div>
-            <div className={styles.card}>
+            <Box className={`${styles.card} ${globalStyles.basicBox}`}>
                 <div className={styles.cardName}>
                     Name
                 </div>
@@ -16,7 +19,7 @@ const RandomPlanet = () => {
                 <div className={styles.cardInfo}>
                     Information
                 </div>
-            </div>
+            </Box>
         </div>
     )
 };

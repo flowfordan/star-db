@@ -1,0 +1,13 @@
+/* global styles */
+.basicBox{
+    background-color: #465163;
+    border-radius: 20px;
+  }
+
+.objectHeader{
+    color: white;
+}
+
+.itemName{
+    color: white;
+}

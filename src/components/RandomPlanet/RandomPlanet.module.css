@@ -19,8 +19,8 @@
 }
 
 .card{
-    background-color: rgb(61, 126, 61);
-    border-radius: 20px;
+    /* background-color: rgb(61, 126, 61); */
+    /* border-radius: 20px; */
     grid-area: card;
     display: grid;
     grid-template-areas: 

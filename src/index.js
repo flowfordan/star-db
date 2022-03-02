@@ -4,7 +4,7 @@ import './index.css';
 import App from './components/App/App';
 import reportWebVitals from './reportWebVitals';
 import {  ThemeProvider } from '@mui/material/styles';
-import theme from './theme/mainTheme';
+import theme from './style/mainTheme';
 
 
 

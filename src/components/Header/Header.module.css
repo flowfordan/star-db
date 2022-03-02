@@ -1,0 +1,26 @@
+.headerWrapper{
+    background-color: blueviolet;
+    height: 100%;
+    display: grid;
+    grid-template-areas: 
+    'logo menu';
+    grid-template-columns: 350px auto;
+}
+
+.headerLogo{
+    background-color: aqua;
+    grid-area: logo;
+    margin-top: 10px;
+    margin-left: 25px;
+    margin-bottom: 10px;
+
+}
+
+.headerMenu{
+    background-color: brown;
+    grid-area: menu;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    margin-right: 25px;
+}

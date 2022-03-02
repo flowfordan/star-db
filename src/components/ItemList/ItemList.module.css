@@ -19,11 +19,10 @@
 }
 
 .list{
-    background-color: rgb(85, 85, 85);
     grid-area: list;
     height: 100%;
     width: 100%;
-    border-radius: 20px;
+
 }
 
 .listItems{
