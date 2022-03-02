@@ -16,21 +16,45 @@ class SwapiService {
 
     return await res.json();
   };
-
-  getAllPeople() {
-    return this.getResource(`/people/`);
+  
+  //getting persons
+  async getAllPeople() {
+    const res = await this.getResource(`/people/`);
+    return res.results;
   };
 
   getPerson(id) {
     return this.getResource(`/people/${id}/`);
+  };
+  
+  //getting planets
+  async getAllPlanets() {
+    const res = await this.getResource(`/planets/`);
+    return res.results;
+  };
+
+  getPlanet(id) {
+    return this.getResource(`/planets/${id}/`);
+  };
+
+  //getting starships
+  async getAllStarships() {
+    const res = await this.getResource(`/starships/`);
+    return res.results;
+  };
+
+  getStarship(id) {
+    return this.getResource(`/starships/${id}/`);
   };
 
 };
 
 const swapi = new SwapiService();
 
-swapi.getAllPeople().then((body) => {
-  console.log(body)
+swapi.getAllPeople().then((people) => {
+  people.forEach(p => {
+    console.log(p.name)
+  });
 })
 
   return (
