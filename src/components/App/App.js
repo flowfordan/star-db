@@ -16,8 +16,12 @@ const App = () => {
                     <RandomPlanet />
                 </div>
                 <div className={styles.items}>
-                    <ItemList />
-                    <PersonDetails />
+                    <div className={styles.itemsList}>
+                        <ItemList />
+                    </div>
+                    <div className={styles.itemInfo}>
+                        <PersonDetails />
+                    </div>
                 </div>
             </div>
         </div>

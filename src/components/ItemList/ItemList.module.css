@@ -1,0 +1,36 @@
+.listWrapper{
+    height: 100%;
+    width: auto;
+    display: grid;
+    grid-template-areas: 
+    'header'
+    'list';
+    grid-template-rows: 30px auto;
+}
+
+
+.listHeader{
+    height: auto;
+    width: auto;
+    grid-area: header;
+    margin-top: 5px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.list{
+    background-color: rgb(85, 85, 85);
+    grid-area: list;
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+}
+
+.listItems{
+    height: auto;
+    width: auto;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: azure;
+}
