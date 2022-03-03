@@ -34,12 +34,13 @@
 }
 
 .cardName{
-    background-color: coral;
+    /* background-color: coral; */
     grid-area: name;
     overflow: hidden;
     margin-top: 10px;
     margin-left: 20px;
     margin-right: 20px;
+    
 }
 
 .cardImage{
@@ -49,10 +50,18 @@
     margin-top: 10px;
     margin-left: 20px;
     margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.cardImageBody{
+    max-width: 100%; 
+    height: 100%; 
+    object-fit: cover
+    
 }
 
 .cardInfo{
-    background-color: rgb(181, 223, 109);
+    background-color: rgb(122, 122, 122);
     grid-area: info;
     overflow: hidden;
     margin-top: 10px;

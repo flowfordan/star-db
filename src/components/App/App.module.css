@@ -20,7 +20,7 @@
     grid-template-areas: 
     'random'
     'items';
-    grid-template-rows: 350px auto;
+    grid-template-rows: 400px auto;
 
 }
 

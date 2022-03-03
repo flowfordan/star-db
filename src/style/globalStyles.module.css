@@ -4,10 +4,41 @@
     border-radius: 20px;
   }
 
-.objectHeader{
+.typoObjectHeader{
     color: white;
 }
 
-.itemName{
+.typoItems, .typoItemName, .typoItemsInfo{
     color: white;
+}
+
+.typoItemName{
+    font-size: xx-large;
+    font-weight: bold;
+    border-bottom: 1px solid;
+    border-color: rgb(192, 192, 192);
+}
+
+.typoItemsInfo{
+    font-size: x-large;
+}
+
+.infoList{
+    background-color: rgb(150, 150, 150);
+    list-style-type: none;
+    line-height: 2;
+    
+}
+
+.infoListGroup{
+    border-bottom: 1px solid;
+    border-color: aliceblue;
+}
+
+.infoListTerm{
+ margin-right: 30px;
+}
+
+.infoListEl{
+    font-weight: lighter;
 }
