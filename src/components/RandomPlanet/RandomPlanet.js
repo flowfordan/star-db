@@ -7,54 +7,94 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import React from 'react';
+import SwapiService from '../../services/swapiService';
 
 
-const RandomPlanet = () => {
+export default class RandomPlanet extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            id: null,
+            name: null,
+            population: null,
+            rotationPeriod: null,
+            diameter: null
+          };
 
-    //population
-    //rotation
-    //diameter
+        this.updatePlanet()
+    };
 
+    swapiService = new SwapiService();
 
+    updatePlanet(){
+        const id = Math.floor(Math.random()*25) + 2;
+        this.swapiService.getPlanet(id)
+        .then((planet) => {
+            this.setState({
+                id: id,
+                name: planet.name,
+                population: planet.population,
+                rotationPeriod: planet.rotation_period,
+                diameter: planet.diameter
+            })
+        })
+    }
 
+    render(){
 
-    return (
-        <div className={styles.cardWrapper}>
-            <div className={styles.cardHeader}>
-                Random Planet
+        const {id, name, population, 
+            rotationPeriod, diameter} = this.state;
+
+        return (
+            <div className={styles.cardWrapper}>
+                <div className={styles.cardHeader}>
+                    Random Planet
+                </div>
+                <Box className={`${styles.card} ${globalStyles.basicBox}`}>
+                    <div className={`${styles.cardName} ${globalStyles.typoItemName}`}>
+                        {name}
+                    </div>
+    
+                    <div className={styles.cardImage}>
+                        <img  className={styles.cardImageBody} 
+                        src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}>
+                        </img>
+                    </div>
+    
+                    <div className={`${styles.cardInfo} ${globalStyles.typoItemsInfo}`}>
+                        <ul className={globalStyles.infoList}>
+    
+                            <li className={globalStyles.infoListGroup}>
+                                <span className={globalStyles.infoListTerm}>
+                                    Population
+                                </span>
+                                <span className={globalStyles.infoListEl}>
+                                    {population}
+                                </span>
+                            </li>
+                            <li className={globalStyles.infoListGroup}>
+                                <span className={globalStyles.infoListTerm}>
+                                    Rotation Period
+                                </span>
+                                <span className={globalStyles.infoListEl}>
+                                    {rotationPeriod}
+                                </span>
+                            </li>
+                            <li className={globalStyles.infoListGroup}>
+                                <span className={globalStyles.infoListTerm}>
+                                    Diameter
+                                </span>
+                                <span className={globalStyles.infoListEl}>
+                                    {diameter}
+                                </span>
+                            </li>
+    
+                        </ul>
+                    </div>
+    
+                </Box>
             </div>
-            <Box className={`${styles.card} ${globalStyles.basicBox}`}>
-                <div className={`${styles.cardName} ${globalStyles.typoItemName}`}>
-                    Name
-                </div>
-
-                <div className={styles.cardImage}>
-                    <img  className={styles.cardImageBody} src='https://www.w3schools.com/css/paris.jpg'>
-                    </img>
-                </div>
-
-                <div className={`${styles.cardInfo} ${globalStyles.typoItemsInfo}`}>
-                    <ul className={globalStyles.infoList}>
-
-                        <li className={globalStyles.infoListGroup}>
-                            <span className={globalStyles.infoListTerm}>Population</span>
-                            <span className={globalStyles.infoListEl}>1234</span>
-                        </li>
-                        <li className={globalStyles.infoListGroup}>
-                            <span className={globalStyles.infoListTerm}>Rotation Period</span>
-                            <span className={globalStyles.infoListEl}>43</span>
-                        </li>
-                        <li className={globalStyles.infoListGroup}>
-                            <span className={globalStyles.infoListTerm}>Diameter</span>
-                            <span className={globalStyles.infoListEl}>999</span>
-                        </li>
-
-                    </ul>
-                </div>
-
-            </Box>
-        </div>
-    )
+        )
+    }
 };
-
-export default RandomPlanet
