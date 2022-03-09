@@ -61,7 +61,7 @@ export default class RandomPlanet extends React.Component {
         
                         <div className={styles.cardImage}>
                             <img  className={styles.cardImageBody}
-                            alt="Image of Planet" 
+                            alt="Planet" 
                             src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}>
                             </img>
                         </div>

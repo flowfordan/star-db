@@ -19,22 +19,18 @@
 }
 
 .card{
-    /* background-color: rgb(61, 126, 61); */
-    /* border-radius: 20px; */
     grid-area: card;
     display: grid;
     grid-template-areas: 
     'name name'
     'image info';
-    grid-template-columns: 350px auto;
+    grid-template-columns: 300px auto;
     grid-template-rows: 50px auto;
-    
     height: 100%;
     width: 100%;
 }
 
 .cardName{
-    background-color: coral;
     grid-area: name;
     overflow: hidden;
     margin-top: 10px;
@@ -43,20 +39,31 @@
 }
 
 .cardImage{
-    background-color: greenyellow;
+    background-color: rgb(122, 122, 122);
     grid-area: image;
     overflow: hidden;
     margin-top: 10px;
     margin-left: 20px;
     margin-bottom: 20px;
+    border-radius: 20px;
+    height: 300px;
+}
+
+.cardImageBody{
+    max-width: 100%; 
+    height: auto; 
+    object-fit: cover
+    
 }
 
 .cardInfo{
-    background-color: rgb(181, 223, 109);
+    background-color: rgb(122, 122, 122);
     grid-area: info;
     overflow: hidden;
     margin-top: 10px;
     margin-left: 20px;
     margin-right: 20px;
     margin-bottom: 20px;
+    border-radius: 20px;
+    height: 300px;
 }
