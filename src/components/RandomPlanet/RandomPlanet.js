@@ -1,12 +1,6 @@
 import styles from './RandomPlanet.module.css'
 import { Box } from '@mui/material';
 import globalStyles from '../../style/globalStyles.module.css'
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
 import React from 'react';
 import SwapiService from '../../services/swapiService';
 import Spinner from '../Spinner/Spinner';
@@ -20,31 +14,34 @@ export default class RandomPlanet extends React.Component {
             planet: {},
             isLoading: true,
             error: false,
-          };
+          };        
+    };
 
+    componentDidMount(){
         this.updatePlanet()
+        this.interval = setInterval(this.updatePlanet, 3500);
+        //clearInterval (this.interval)
     };
 
     swapiService = new SwapiService();
 
-    onPlanetLoaded = (planet) => {
-        this.setState({planet,
-        isLoading: false})
+    updatePlanet = () => {
+        const id = Math.floor(Math.random()*25) + 2;
+        this.swapiService.getPlanet(id)
+        .then(this.onPlanetLoaded)
+        .catch(this.onError);
     };
 
+    onPlanetLoaded = (planet) => {
+            this.setState({planet,
+            isLoading: false})
+    };
 
     onError = (err) => {
         this.setState({
             error: true,
         isLoading: false})
     };
-
-    updatePlanet(){
-        const id = Math.floor(Math.random()*25) + 2;
-        this.swapiService.getPlanet(id)
-        .then(this.onPlanetLoaded)
-        .catch(this.onError);
-    }
 
     render(){
 
@@ -147,28 +144,5 @@ export default class RandomPlanet extends React.Component {
 
                      </div>
         )
-
-        // if(isLoading){
-        //     return (
-        //         <div className={styles.cardWrapper}>
-        //             <div className={styles.cardHeader}>
-        //                 Random Planet
-        //             </div>
-
-        //             <PreloaderView />
-        //         </div>
-        //     )
-        // };
-           
-        // return (
-        //     <div className={styles.cardWrapper}>
-        //             <div className={styles.cardHeader}>
-        //                 Random Planet
-        //             </div>
-
-        //             <PlanetView planet={planet}/>
-        //     </div>
-        // );
-
     }
 }
