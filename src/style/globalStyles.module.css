@@ -1,6 +1,6 @@
 /* global styles */
 .basicBox{
-    background-color: #465163;
+    background-color: #3d4450;
     border-radius: 20px;
   }
 
@@ -41,4 +41,12 @@
 
 .infoListEl{
     font-weight: lighter;
+}
+
+/* preloader positioning */
+.preloaderContainer{
+height: 100%;
+    display: flex;
+  justify-content: center;
+  align-items: center;
 }
