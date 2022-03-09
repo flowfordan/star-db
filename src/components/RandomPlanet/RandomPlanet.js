@@ -10,6 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import React from 'react';
 import SwapiService from '../../services/swapiService';
 import Spinner from '../Spinner/Spinner';
+import ErrorIndicator from '../ErrorIndicator/ErrorIndicator';
 
 
 export default class RandomPlanet extends React.Component {
@@ -18,6 +19,7 @@ export default class RandomPlanet extends React.Component {
         this.state = {
             planet: {},
             isLoading: true,
+            error: false,
           };
 
         this.updatePlanet()
@@ -30,15 +32,23 @@ export default class RandomPlanet extends React.Component {
         isLoading: false})
     };
 
+
+    onError = (err) => {
+        this.setState({
+            error: true,
+        isLoading: false})
+    };
+
     updatePlanet(){
         const id = Math.floor(Math.random()*25) + 2;
         this.swapiService.getPlanet(id)
-        .then(this.onPlanetLoaded);
+        .then(this.onPlanetLoaded)
+        .catch(this.onError);
     }
 
     render(){
 
-        const {planet, isLoading} = this.state;
+        const {planet, isLoading, error} = this.state;
         
         const PlanetView = ({ planet }) => {
 
@@ -119,14 +129,20 @@ export default class RandomPlanet extends React.Component {
             )
         };
 
-        const renderedContent = isLoading? <PreloaderView/> : <PlanetView planet={planet}/>;
+
+
+        const hasData = !(isLoading || error);
+        const errorMessage = error? <ErrorIndicator/> : null;
+        const loading = isLoading? <PreloaderView /> : null;
+        const renderedContent = !hasData? null : <PlanetView planet={planet}/>;
 
         return (
             <div className={styles.cardWrapper}>
                          <div className={styles.cardHeader}>
                              Random Planet
                          </div>
-    
+                        {errorMessage}
+                        {loading}
                         {renderedContent}
 
                      </div>
