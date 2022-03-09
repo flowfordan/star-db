@@ -1,5 +1,5 @@
 .cardWrapper{
-    height: 100%;
+    height: auto;
     width: auto;
     display: grid;
     grid-template-areas: 
@@ -19,8 +19,6 @@
 }
 
 .card{
-    /* background-color: rgb(61, 126, 61); */
-    /* border-radius: 20px; */
     grid-area: card;
     display: grid;
     grid-template-areas: 
@@ -29,12 +27,11 @@
     grid-template-columns: 350px auto;
     grid-template-rows: 50px auto;
     
-    height: 100%;
-    width: 100%;
+    height: auto;
+    width: auto;
 }
 
 .cardName{
-    /* background-color: coral; */
     grid-area: name;
     overflow: hidden;
     margin-top: 10px;
@@ -70,4 +67,5 @@
     margin-right: 20px;
     margin-bottom: 20px;
     border-radius: 20px;
+    height: 300px;
 }

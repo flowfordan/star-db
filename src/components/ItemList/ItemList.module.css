@@ -26,10 +26,11 @@
 }
 
 .listItems{
+    
     height: auto;
     width: auto;
     margin-top: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    background-color: azure;
+    margin-left: 0;
+    margin-right: 0;
+    /* background-color: rgb(223, 156, 70); */
 }
