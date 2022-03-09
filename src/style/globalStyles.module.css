@@ -50,13 +50,18 @@
     font-weight: lighter;
 }
 
-.infoListElSelect{
+.infoListElSelect, .infoListElSelected{
     text-indent: 10px;
     
 }
 
 .infoListElSelect:hover{
     background-color: rgb(128, 128, 128);
+    cursor: pointer;
+}
+
+.infoListElSelected{
+    background-color: rgb(139, 72, 72);
     cursor: pointer;
 }
 

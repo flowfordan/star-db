@@ -36,7 +36,8 @@ export default class App extends React.Component{
                 </div>
                 <div className={styles.items}>
                     <div className={styles.itemsList}>
-                        <ItemList onItemSelected={this.onPersonSelected}/>
+                        <ItemList onItemSelected={this.onPersonSelected}
+                        selectedPerson={this.state.selectedPerson}/>
                     </div>
                     <div className={styles.itemInfo}>
                         <PersonDetails personId={this.state.selectedPerson}/>

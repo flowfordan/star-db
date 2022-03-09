@@ -13,6 +13,7 @@ export default class ItemList extends React.Component{
 
         this.state = {
             peopleList: null,
+            selectedItem: null,
         }
 
     };
@@ -31,19 +32,27 @@ export default class ItemList extends React.Component{
 
     const {peopleList} = this.state;
 
-    
-
+    console.log(this.props.selectedPerson)
+    //this.props.selectedPerson
 
     if(!peopleList){
         return <Spinner/>
     }
 
     const listItems = peopleList.map((person) => {
+
+        let isItemActive = false
+        
+        if(this.props.selectedPerson == person.id){
+            isItemActive = true}
+            
+        
+
         return (
         <li className={globalStyles.infoListGroup} 
         key={person.id}
         onClick={() => this.props.onItemSelected(person.id)}>
-            <div className={globalStyles.infoListElSelect}>
+            <div className={isItemActive? globalStyles.infoListElSelected:globalStyles.infoListElSelect}>
                 {person.name}
             </div>
         </li>
