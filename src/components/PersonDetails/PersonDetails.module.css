@@ -24,10 +24,10 @@
     grid-template-areas: 
     'name name'
     'image info';
-    grid-template-columns: 300px auto;
+    grid-template-columns: 250px auto;
     grid-template-rows: 50px auto;
-    height: 100%;
-    width: 100%;
+    height: auto;
+    width: auto;
 }
 
 .cardName{

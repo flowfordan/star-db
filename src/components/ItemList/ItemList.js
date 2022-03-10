@@ -13,23 +13,22 @@ export default class ItemList extends React.Component{
         super(props);
 
         this.state = {
-            peopleList: null,
+            itemList: null,
             selectedItem: null,
             error: false,
             isLoading: true,
             
         }
 
+        console.log(this.props)
     };
 
-    swapiService = new SwapiService();
 
     componentDidMount(){
-        this.swapiService
-        .getAllPeople()
-        .then((peopleList) => {
+        const {getData} = this.props;
+        getData().then((itemList) => {
             this.setState({
-                peopleList, 
+                itemList, 
                 isLoading: false})
         }).catch(this.onError);
     };
@@ -44,17 +43,17 @@ export default class ItemList extends React.Component{
 
     render(){
 
-    const {peopleList, isLoading, error} = this.state;
+    const {itemList, isLoading, error} = this.state;
 
-    if(!peopleList){
+    if(!itemList){
         return <Spinner/>
     }
 
-    const listItems = peopleList.map((person) => {
+    const listItems = itemList.map((person) => {
 
         let isItemActive = false
         
-        if(this.props.selectedPerson == person.id){
+        if(this.props.selectedItem == person.id){
             isItemActive = true}
 
         return (
