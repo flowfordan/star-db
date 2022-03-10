@@ -10,7 +10,7 @@
     color: white;
 }
 
-.typoItems, .typoItemName, .typoItemsInfo{
+.typoItems, .typoItemName, .typoItemsInfo, .typoChunkHeader{
     color: white;
 }
 
@@ -25,6 +25,11 @@
     font-size: large;
 }
 
+.typoChunkHeader{
+    color: #acacac;
+    font-size: medium;
+    font-weight: lighter;
+}
 
 /* originally for ul tag */
 .infoList{
