@@ -1,4 +1,6 @@
 import React from 'react';
+import CharactersPage from '../CharactersPage/CharactersPage';
+import ErrorIndicator from '../ErrorIndicator/ErrorIndicator';
 import Header from '../Header/Header';
 import ItemList from '../ItemList/ItemList';
 import PersonDetails from '../PersonDetails/PersonDetails';
@@ -12,18 +14,29 @@ export default class App extends React.Component{
         super(props);
 
         this.state = {
-            selectedPerson: null,
+            // selectedPerson: null,
+            hasError: false,
         }
     };
 
-
-    onPersonSelected = (id) => {
-        this.setState({
-            selectedPerson: id,
-        })
+    componentDidCatch(){
+        this.setState({hasError: true});
     };
 
+    // onPersonSelected = (id) => {
+    //     this.setState({
+    //         selectedPerson: id,
+    //     })
+    // };
+
     render(){
+
+        if(this.state.hasError){
+            return(
+                <ErrorIndicator />
+            )
+        };
+
         return(
          <div className={styles.appWrapper}>
             <div className={styles.header}>
@@ -34,15 +47,9 @@ export default class App extends React.Component{
                 <div className={styles.itemRandom}>
                     <RandomPlanet />
                 </div>
-                <div className={styles.items}>
-                    <div className={styles.itemsList}>
-                        <ItemList onItemSelected={this.onPersonSelected}
-                        selectedPerson={this.state.selectedPerson}/>
-                    </div>
-                    <div className={styles.itemInfo}>
-                        <PersonDetails personId={this.state.selectedPerson}/>
-                    </div>
-                </div>
+
+                <CharactersPage />
+
             </div>
         </div>   
         )

@@ -19,8 +19,11 @@ export default class RandomPlanet extends React.Component {
 
     componentDidMount(){
         this.updatePlanet()
-        this.interval = setInterval(this.updatePlanet, 3000500);
-        //clearInterval (this.interval)
+        this.interval = setInterval(this.updatePlanet, 5500);
+    };
+
+    componentWillUnmount(){
+        clearInterval(this.interval);
     };
 
     swapiService = new SwapiService();

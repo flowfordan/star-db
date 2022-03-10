@@ -75,6 +75,7 @@
 .infoListElSelected{
     background-color: #565f6e;
     cursor: pointer;
+    border-right: solid 2px white;
 }
 
 /* preloader positioning */
