@@ -61,12 +61,19 @@
 }
 
 .infoListElSelect:hover{
-    background-color: rgb(128, 128, 128);
+    background-color: #4b5361;
     cursor: pointer;
 }
 
+.infoListElSelect:active{
+    background-color: #677285;
+    cursor: pointer;
+    transform: scale(1.05);
+    box-shadow: 0 0 0 0 white;
+}
+
 .infoListElSelected{
-    background-color: rgb(139, 72, 72);
+    background-color: #565f6e;
     cursor: pointer;
 }
 
@@ -76,4 +83,9 @@ height: 100%;
     display: flex;
   justify-content: center;
   align-items: center;
+}
+
+/* cards styles */
+.cardObjBackground{
+    background-color: #4b5361;
 }

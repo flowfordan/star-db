@@ -59,14 +59,15 @@ export default class RandomPlanet extends React.Component {
                             {name}
                         </div>
         
-                        <div className={styles.cardImage}>
+                        <div className={`${styles.cardImage} ${globalStyles.cardObjBackground}`}>
                             <img  className={styles.cardImageBody}
                             alt="Planet" 
                             src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}>
                             </img>
                         </div>
         
-                        <div className={`${styles.cardInfo} ${globalStyles.typoItemsInfo}`}>
+                        <div className={`${styles.cardInfo} 
+                        ${globalStyles.typoItemsInfo} ${globalStyles.cardObjBackground}`}>
                             <ul className={globalStyles.infoList}>
         
                                 <li className={globalStyles.infoListGroup}>

@@ -39,7 +39,7 @@
 }
 
 .cardImage{
-    background-color: rgb(122, 122, 122);
+    /* background-color: rgb(122, 122, 122); */
     grid-area: image;
     overflow: hidden;
     margin-top: 10px;
@@ -57,7 +57,7 @@
 }
 
 .cardInfo{
-    background-color: rgb(122, 122, 122);
+    /* background-color: rgb(122, 122, 122); */
     grid-area: info;
     overflow: hidden;
     margin-top: 10px;

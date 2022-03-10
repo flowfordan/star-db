@@ -72,14 +72,15 @@ export default class PersonDetails extends React.Component{
                 <div className={`${styles.cardName} ${globalStyles.typoItemName}`}>
                     {name}
                 </div>
-                <div className={styles.cardImage}>
+                <div className={`${styles.cardImage} ${globalStyles.cardObjBackground}`} >
                     <img  className={styles.cardImageBody}
                     src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
                     alt="Character">
                     </img>
                 </div>
                 
-                <div className={`${styles.cardInfo} ${globalStyles.typoItemsInfo}`}>
+                <div className={`${styles.cardInfo} 
+                ${globalStyles.typoItemsInfo} ${globalStyles.cardObjBackground}`}>
                     <ul className={globalStyles.infoList}>
         
                         <li className={globalStyles.infoListGroup}>
