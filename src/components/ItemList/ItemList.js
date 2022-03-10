@@ -4,6 +4,7 @@ import { Box, List, ListItem, ListItemText, ListItemButton } from '@mui/material
 import React from 'react';
 import SwapiService from '../../services/swapiService';
 import Spinner from '../Spinner/Spinner';
+import ErrorIndicator from '../ErrorIndicator/ErrorIndicator';
 
 
 export default class ItemList extends React.Component{
@@ -14,6 +15,9 @@ export default class ItemList extends React.Component{
         this.state = {
             peopleList: null,
             selectedItem: null,
+            error: false,
+            isLoading: true,
+            
         }
 
     };
@@ -24,16 +28,23 @@ export default class ItemList extends React.Component{
         this.swapiService
         .getAllPeople()
         .then((peopleList) => {
-            this.setState({peopleList})
-        })
+            this.setState({
+                peopleList, 
+                isLoading: false})
+        }).catch(this.onError);
     };
+
+    onError = (err) => {
+        this.setState({
+            error: true,
+        isLoading: false})
+    };
+
+
 
     render(){
 
-    const {peopleList} = this.state;
-
-    console.log(this.props.selectedPerson)
-    //this.props.selectedPerson
+    const {peopleList, isLoading, error} = this.state;
 
     if(!peopleList){
         return <Spinner/>
@@ -45,8 +56,6 @@ export default class ItemList extends React.Component{
         
         if(this.props.selectedPerson == person.id){
             isItemActive = true}
-            
-        
 
         return (
         <li className={globalStyles.infoListGroup} 
@@ -57,24 +66,55 @@ export default class ItemList extends React.Component{
             </div>
         </li>
         )
-     })     
+    });   
     
+
+    const ListView = () => {
+        return(
+            <React.Fragment>
+            <Box className={`${styles.list} ${globalStyles.basicBox}`}>
+
+                    <div className={`${styles.listItems} ${globalStyles.typoItemsInfo}`}>
+                        <ul className={globalStyles.infoList}>
+                            {listItems}
+                        </ul>
+                    </div>
+            </Box>
+            </React.Fragment>
+        )
+    };
+
+    const PreloaderView = () => {
+        return(
+            <React.Fragment>
+            <Box className={`${styles.list} ${globalStyles.basicBox}`}>
+
+                    <div className={`${styles.listItems} ${globalStyles.typoItemsInfo}`}>
+                        <ul className={globalStyles.infoList}>
+                        <Spinner/>
+                        </ul>
+                    </div>
+            </Box>
+            </React.Fragment>
+        )
+    };
+
+    const hasData = !(isLoading || error);
+    const errorMessage = error? <ErrorIndicator /> : null;
+    const loading = isLoading? <PreloaderView /> : null;
+    const renderedContent = !hasData? null : <ListView />;
+
     return(
             <div className={styles.listWrapper}>
                 <div className={styles.listHeader}>
-                    ItemList
+                    Characters List
                 </div>
 
-                <Box className={`${styles.list} ${globalStyles.basicBox}`}>
-
-                <div className={`${styles.listItems} ${globalStyles.typoItemsInfo}`}>
-                                <ul className={globalStyles.infoList}>
-                                    {listItems}
-                                </ul>
-                            </div>
-                        </Box>
+                {errorMessage}
+                {loading}
+                {renderedContent}
                         
-                    </div>
+            </div>
         )
     };
 
