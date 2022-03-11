@@ -49,19 +49,21 @@ export default class ItemList extends React.Component{
         return <Spinner/>
     }
 
-    const listItems = itemList.map((person) => {
-
+    const listItems = itemList.map((item) => {
+        const {id} = item
         let isItemActive = false
+
+        const label = this.props.renderItem(item)
         
-        if(this.props.selectedItem == person.id){
+        if(this.props.selectedItem == id){
             isItemActive = true}
 
         return (
         <li className={globalStyles.infoListGroup} 
-        key={person.id}
-        onClick={() => this.props.onItemSelected(person.id)}>
+        key={id}
+        onClick={() => this.props.onItemSelected(id)}>
             <div className={isItemActive? globalStyles.infoListElSelected:globalStyles.infoListElSelect}>
-                {person.name}
+                {label}
             </div>
         </li>
         )

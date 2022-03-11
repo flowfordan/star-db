@@ -6,6 +6,21 @@ import PersonDetails from "../PersonDetails/PersonDetails";
 import styles from './CharactersPage.module.css';
 
 
+const Row = ({ left, right }) => {
+    return(
+        <div className={styles.items}>
+            <div className={styles.itemsList}>
+                {left}
+            </div>
+            <div className={styles.itemInfo}>
+                {right} 
+            </div>
+        </div>  
+    );
+};
+
+
+
 export default class CharactersPage extends React.Component{
 
     swapiService = new SwapiService();
@@ -35,17 +50,23 @@ export default class CharactersPage extends React.Component{
             )
         };
 
+        const itemList = (
+            <ItemList
+            renderItem={(item)=> `${item.name}, ${item.birthYear}`} 
+            onItemSelected={this.onPersonSelected}
+            selectedItem={this.state.selectedItem}
+            getData={this.swapiService.getAllPeople}/>
+        );
+
+        const personDetails = (
+            <PersonDetails 
+            personId={this.state.selectedItem}/>
+        );
+    
         return(
-            <div className={styles.items}>
-                    <div className={styles.itemsList}>
-                        <ItemList onItemSelected={this.onPersonSelected}
-                        selectedItem={this.state.selectedItem}
-                        getData={this.swapiService.getAllPeople}/>
-                    </div>
-                    <div className={styles.itemInfo}>
-                        <PersonDetails personId={this.state.selectedItem}/>
-                    </div>
-            </div>
+            <Row left={itemList} right={personDetails}/>
         )
     };
 };
+
+
