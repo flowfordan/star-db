@@ -2,7 +2,7 @@ import React from "react";
 import SwapiService from "../../services/swapiService";
 import ErrorIndicator from "../ErrorIndicator/ErrorIndicator";
 import ItemList from "../ItemList/ItemList";
-import ItemDetails from "../ItemDetails/ItemDetails";
+import ItemDetails, {Record} from "../ItemDetails/ItemDetails";
 import styles from './CharactersPage.module.css';
 
 
@@ -72,7 +72,12 @@ export default class CharactersPage extends React.Component{
             <ItemDetails 
             itemId={this.state.selectedItem}
             getData={this.swapiService.getPerson}
-            getImageUrl={getPersonImage}/>
+            getImageUrl={getPersonImage}
+            itemType={'Character'}>
+                <Record field='birthYear' label='Birth Year'/> 
+                <Record field='gender' label='Gender'/>
+                <Record field='eyeColor' label='Eye Color'/>
+            </ItemDetails>
         );
 
         const starshipsList = (
@@ -88,7 +93,12 @@ export default class CharactersPage extends React.Component{
             <ItemDetails 
             itemId={this.state.selectedItem}
             getData={this.swapiService.getStarship}
-            getImageUrl={getStarshipImage}/>
+            getImageUrl={getStarshipImage}
+            itemType={'Starship'}>
+                <Record field='model' label='Model'/> 
+                <Record field='length' label='Length (m)'/>
+                <Record field='costInCredits' label='Cost (g.c)'/>
+            </ItemDetails>
         );
     
         return(

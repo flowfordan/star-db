@@ -7,6 +7,24 @@ import Spinner from '../Spinner/Spinner';
 import ErrorIndicator from '../ErrorIndicator/ErrorIndicator';
 
 
+const Record = ({ currentItem, field, label }) => {
+    return(
+        <li className={globalStyles.infoListGroup}>
+            <span className={globalStyles.infoListTerm}>
+                {label}
+            </span>
+            <span className={globalStyles.infoListEl}>
+                {currentItem[field]}
+            </span>
+        </li> 
+    )
+};
+
+export {
+    Record
+};
+
+
 export default class ItemDetails extends React.Component{
     constructor(props){
         super(props);
@@ -60,7 +78,7 @@ export default class ItemDetails extends React.Component{
 
         if(!this.state.currentItem){
             return(
-                <div>Select item on the list</div>
+                <div>Select {this.props.itemType} on the list</div>
             )
         }
 
@@ -88,32 +106,11 @@ export default class ItemDetails extends React.Component{
                 <div className={`${styles.cardInfo} 
                 ${globalStyles.typoItemsInfo} ${globalStyles.cardObjBackground}`}>
                     <ul className={globalStyles.infoList}>
-        
-                        <li className={globalStyles.infoListGroup}>
-                            <span className={globalStyles.infoListTerm}>
-                                Gender
-                            </span>
-                            <span className={globalStyles.infoListEl}>
-                                {gender}
-                            </span>
-                        </li>
-                        <li className={globalStyles.infoListGroup}>
-                            <span className={globalStyles.infoListTerm}>
-                                Birth Year
-                            </span>
-                            <span className={globalStyles.infoListEl}>
-                                {birthYear}
-                            </span>
-                        </li>
-                        <li className={globalStyles.infoListGroup}>
-                            <span className={globalStyles.infoListTerm}>
-                                Eye Color
-                            </span>
-                            <span className={globalStyles.infoListEl}>
-                                {eyeColor}
-                            </span>
-                        </li>
-        
+                        {
+                        React.Children.map(this.props.children, 
+                            (child) => {
+                                return React.cloneElement(child, {currentItem})})
+                         }
                     </ul>
                 </div>
 
