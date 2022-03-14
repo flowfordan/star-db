@@ -2,8 +2,6 @@ import React from 'react';
 import CharactersPage from '../CharactersPage/CharactersPage';
 import ErrorIndicator from '../ErrorIndicator/ErrorIndicator';
 import Header from '../Header/Header';
-import ItemList from '../ItemList/ItemList';
-import PersonDetails from '../PersonDetails/PersonDetails';
 import RandomPlanet from '../RandomPlanet/RandomPlanet';
 import styles from './App.module.css'
 
@@ -14,7 +12,6 @@ export default class App extends React.Component{
         super(props);
 
         this.state = {
-            // selectedPerson: null,
             hasError: false,
         }
     };
@@ -23,11 +20,6 @@ export default class App extends React.Component{
         this.setState({hasError: true});
     };
 
-    // onPersonSelected = (id) => {
-    //     this.setState({
-    //         selectedPerson: id,
-    //     })
-    // };
 
     render(){
 
@@ -49,6 +41,7 @@ export default class App extends React.Component{
                 </div>
 
                 <CharactersPage />
+                
 
             </div>
         </div>   

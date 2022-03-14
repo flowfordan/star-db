@@ -44,14 +44,16 @@
     overflow: hidden;
     margin-top: 10px;
     margin-left: 20px;
-    margin-bottom: 20px;
+    margin-bottom: auto;
     border-radius: 20px;
-    height: 300px;
+    height: auto;
+    max-height: 300px;
+    display: flex;
 }
 
 .cardImageBody{
     max-width: 100%; 
-    height: auto; 
+    height: auto;
     object-fit: cover
     
 }

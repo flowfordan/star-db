@@ -2,7 +2,7 @@ import React from "react";
 import SwapiService from "../../services/swapiService";
 import ErrorIndicator from "../ErrorIndicator/ErrorIndicator";
 import ItemList from "../ItemList/ItemList";
-import PersonDetails from "../PersonDetails/PersonDetails";
+import ItemDetails from "../ItemDetails/ItemDetails";
 import styles from './CharactersPage.module.css';
 
 
@@ -23,7 +23,11 @@ const Row = ({ left, right }) => {
 
 export default class CharactersPage extends React.Component{
 
+    
+    
     swapiService = new SwapiService();
+    
+    
 
     constructor(props){
         super(props);
@@ -33,6 +37,8 @@ export default class CharactersPage extends React.Component{
         };
     };
 
+    
+    
     onPersonSelected = (id) => {
         this.setState({
             selectedItem: id,
@@ -44,27 +50,56 @@ export default class CharactersPage extends React.Component{
     };
 
     render(){
-        if(this.state.hasError){
+        
+    const {getPersonImage, getStarshipImage} = this.swapiService;
+        
+    if(this.state.hasError){
             return(
                 <ErrorIndicator />
             )
         };
 
-        const itemList = (
+        const charactersList = (
             <ItemList
-            renderItem={(item)=> `${item.name}, ${item.birthYear}`} 
+            
             onItemSelected={this.onPersonSelected}
             selectedItem={this.state.selectedItem}
-            getData={this.swapiService.getAllPeople}/>
+            getData={this.swapiService.getAllPeople}
+            renderItem={(item)=> `${item.name}, ${item.birthYear}`} />
         );
 
         const personDetails = (
-            <PersonDetails 
-            personId={this.state.selectedItem}/>
+            <ItemDetails 
+            itemId={this.state.selectedItem}
+            getData={this.swapiService.getPerson}
+            getImageUrl={getPersonImage}/>
+        );
+
+        const starshipsList = (
+            <ItemList
+            onItemSelected={this.onPersonSelected}
+            selectedItem={this.state.selectedItem}
+            getData={this.swapiService.getAllStarships}
+            renderItem={(item)=> `${item.name}`} />
+        );
+
+
+        const starshipDetails = (
+            <ItemDetails 
+            itemId={this.state.selectedItem}
+            getData={this.swapiService.getStarship}
+            getImageUrl={getStarshipImage}/>
         );
     
         return(
-            <Row left={itemList} right={personDetails}/>
+            <React.Fragment>
+            <div>
+                <Row left={charactersList} right={personDetails}/>
+            </div>
+            <div>
+                <Row left={starshipsList} right={starshipDetails}/>
+            </div>
+            </React.Fragment>
         )
     };
 };

@@ -1,4 +1,4 @@
-import styles from './PersonDetails.module.css'
+import styles from './ItemDetails.module.css'
 import { Box } from '@mui/material';
 import globalStyles from '../../style/globalStyles.module.css'
 import React from 'react';
@@ -7,12 +7,13 @@ import Spinner from '../Spinner/Spinner';
 import ErrorIndicator from '../ErrorIndicator/ErrorIndicator';
 
 
-export default class PersonDetails extends React.Component{
+export default class ItemDetails extends React.Component{
     constructor(props){
         super(props);
     
     this.state = {
-        person: null,
+        currentItem: null,
+        image: null,
         isLoading: true,
         error: false
     }
@@ -21,28 +22,31 @@ export default class PersonDetails extends React.Component{
     swapiService = new SwapiService();
 
     componentDidMount(){
-        this.updatePerson();
+        this.updateItem();
     };
 
 
     componentDidUpdate(prevProps){
-        if(this.props.personId != prevProps.personId){
-           this.updatePerson();
+        if(this.props.itemId != prevProps.itemId){
+           this.updateItem();
            this.setState({isLoading: true})
         }
         
     };
 
-    updatePerson(){
-        const {personId} = this.props;
+    updateItem(){
+        const {itemId, getData, getImageUrl} = this.props;
         
-        if(!personId) {
+        if(!itemId) {
             return;
         }
 
-        this.swapiService.getPerson(personId)
-        .then((person) => {
-            this.setState({person, isLoading: false})
+        getData(itemId)
+        .then((currentItem) => {
+            this.setState({
+            currentItem, 
+            isLoading: false,
+            image: getImageUrl(currentItem)})
         }).catch(this.onError);
     };
 
@@ -54,7 +58,7 @@ export default class PersonDetails extends React.Component{
 
     render(){
 
-        if(!this.state.person){
+        if(!this.state.currentItem){
             return(
                 <div>Select item on the list</div>
             )
@@ -64,7 +68,9 @@ export default class PersonDetails extends React.Component{
 
         const CharacterView = () => {
 
-            const {id, name, gender, birthYear, eyeColor} = this.state.person;
+            const {currentItem, image} = this.state;
+
+            const {id, name, gender, birthYear, eyeColor} = currentItem;
 
             return(
                 <React.Fragment>
@@ -74,7 +80,7 @@ export default class PersonDetails extends React.Component{
                 </div>
                 <div className={`${styles.cardImage} ${globalStyles.cardObjBackground}`} >
                     <img  className={styles.cardImageBody}
-                    src={`https://starwars-visualguide.com/assets/img/characters/${id}.jpg`}
+                    src={image}
                     alt="Character">
                     </img>
                 </div>
@@ -113,7 +119,7 @@ export default class PersonDetails extends React.Component{
 
             </Box>
 
-                </React.Fragment>
+        </React.Fragment>
             )
         };
 

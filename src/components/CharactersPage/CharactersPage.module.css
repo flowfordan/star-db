@@ -2,7 +2,6 @@
     background-color: rgb(236, 163, 163);
     grid-area: items;
     margin: 5px;
-
     display: grid;
     grid-template-areas: 
     'list info';
