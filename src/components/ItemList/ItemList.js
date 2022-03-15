@@ -1,71 +1,40 @@
 import styles from './ItemList.module.css';
 import globalStyles from '../../style/globalStyles.module.css';
-import { Box, List, ListItem, ListItemText, ListItemButton } from '@mui/material';
+import { Box } from '@mui/material';
 import React from 'react';
 import SwapiService from '../../services/swapiService';
 import Spinner from '../Spinner/Spinner';
 import ErrorIndicator from '../ErrorIndicator/ErrorIndicator';
+import withData from '../hocHelpers/withData';
 
+const { getAllPeople } = new SwapiService();
 
-export default class ItemList extends React.Component{
+const ItemList = (props) => {
+    
+    console.log(props)
 
-    constructor(props){
-        super(props);
+    const {data} = props;
 
-        this.state = {
-            itemList: null,
-            selectedItem: null,
-            error: false,
-            isLoading: true,
-            
-        }
-
-        console.log(this.props)
-    };
-
-
-    componentDidMount(){
-        const {getData} = this.props;
-        getData().then((itemList) => {
-            this.setState({
-                itemList, 
-                isLoading: false})
-        }).catch(this.onError);
-    };
-
-    onError = (err) => {
-        this.setState({
-            error: true,
-        isLoading: false})
-    };
-
-
-
-    render(){
-
-    const {itemList, isLoading, error} = this.state;
-
-    if(!itemList){
-        return <Spinner/>
-    }
+    const {itemList, isLoading, error} = data;
 
     const listItems = itemList.map((item) => {
-        const {id} = item
-        let isItemActive = false
+        const {id} = item;
 
-        const label = this.props.renderItem(item)
+        let isItemActive = false;
+
+        const label = props.renderItem(item);
         
-        if(this.props.selectedItem == id){
+        if(props.selectedItem == id){
             isItemActive = true}
 
         return (
-        <li className={globalStyles.infoListGroup} 
-        key={id}
-        onClick={() => this.props.onItemSelected(id)}>
-            <div className={isItemActive? globalStyles.infoListElSelected:globalStyles.infoListElSelect}>
-                {label}
-            </div>
-        </li>
+            <li className={globalStyles.infoListGroup} 
+            key={id}
+            onClick={() => props.onItemSelected(id)}>
+                <div className={isItemActive? globalStyles.infoListElSelected:globalStyles.infoListElSelect}>
+                    {label}
+                </div>
+            </li>
         )
     });   
     
@@ -74,7 +43,6 @@ export default class ItemList extends React.Component{
         return(
             <React.Fragment>
             <Box className={`${styles.list} ${globalStyles.basicBox}`}>
-
                     <div className={`${styles.listItems} ${globalStyles.typoItemsInfo}`}>
                         <ul className={globalStyles.infoList}>
                             {listItems}
@@ -89,7 +57,6 @@ export default class ItemList extends React.Component{
         return(
             <React.Fragment>
             <Box className={`${styles.list} ${globalStyles.basicBox}`}>
-
                     <div className={`${styles.listItems} ${globalStyles.typoItemsInfo}`}>
                         <ul className={globalStyles.infoList}>
                         <Spinner/>
@@ -108,7 +75,7 @@ export default class ItemList extends React.Component{
     return(
             <div className={styles.listWrapper}>
                 <div className={styles.listHeader}>
-                    Characters List
+                    {`${props.itemType} List`}
                 </div>
 
                 {errorMessage}
@@ -116,8 +83,9 @@ export default class ItemList extends React.Component{
                 {renderedContent}
                         
             </div>
-        )
-    };
+    )
+    
 
 };
 
+export default withData(ItemList, getAllPeople) ;
