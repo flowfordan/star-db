@@ -2,8 +2,8 @@ import styles from './ItemDetails.module.css'
 import { Box } from '@mui/material';
 import globalStyles from '../../style/globalStyles.module.css'
 import React from 'react';
-import Spinner from '../Spinner/Spinner';
-import ErrorIndicator from '../ErrorIndicator/ErrorIndicator';
+import Spinner from '../common/Spinner/Spinner';
+import ErrorIndicator from '../common/ErrorIndicator/ErrorIndicator';
 
 
 const Record = ({ currentItem, field, label }) => {
@@ -37,30 +37,29 @@ const ItemDetails = (props) => {
             return(
                 <React.Fragment>
                     <Box className={`${styles.card} ${globalStyles.basicBox}`}>
-                <div className={`${styles.cardName} ${globalStyles.typoItemName}`}>
-                    {name}
-                </div>
-                <div className={`${styles.cardImage} ${globalStyles.cardObjBackground}`} >
-                    <img  className={styles.cardImageBody}
-                    src={image}
-                    alt={`${props.itemType}`}>
-                    </img>
-                </div>
+                        <div className={`${styles.cardName} ${globalStyles.typoItemName}`}>
+                            {name}
+                        </div>
+                        <div className={`${styles.cardImage} ${globalStyles.cardObjBackground}`} >
+                            <img  className={styles.cardImageBody}
+                            src={image}
+                            alt={`${props.itemType}`}>
+                            </img>
+                        </div>
                 
-                <div className={`${styles.cardInfo} 
-                ${globalStyles.typoItemsInfo} ${globalStyles.cardObjBackground}`}>
-                    <ul className={globalStyles.infoList}>
-                        {
-                        React.Children.map(props.children, 
-                            (child) => {
-                                return React.cloneElement(child, {currentItem})})
-                         }
-                    </ul>
-                </div>
+                        <div className={`${styles.cardInfo} 
+                        ${globalStyles.typoItemsInfo} ${globalStyles.cardObjBackground}`}>
+                            <ul className={globalStyles.infoList}>
+                                {
+                                React.Children.map(props.children, 
+                                    (child) => {
+                                        return React.cloneElement(child, {currentItem})})
+                                }
+                            </ul>
+                        </div>
 
-            </Box>
-
-        </React.Fragment>
+                    </Box>
+                </React.Fragment>
             )
         };
 
@@ -74,8 +73,6 @@ const ItemDetails = (props) => {
 
             )
         };
-
-        // const {isLoading, error} = this.state;
 
         const hasData = !(isLoading || error);
         const errorMessage = error? <ErrorIndicator /> : null;

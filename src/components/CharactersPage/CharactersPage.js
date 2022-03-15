@@ -1,10 +1,10 @@
 import React from "react";
 import SwapiService from "../../services/swapiService";
-import ErrorIndicator from "../ErrorIndicator/ErrorIndicator";
+import ErrorIndicator from "../common/ErrorIndicator/ErrorIndicator";
 import ItemList from "../ItemList/ItemList";
 import ItemDetails, {Record} from "../ItemDetails/ItemDetails";
 import styles from './CharactersPage.module.css';
-import withData from "../hocHelpers/withData";
+import withData from "../hocHelpers/withDataList";
 import { 
     CharacterList, 
     StarshipList, 
@@ -84,6 +84,7 @@ export default class CharactersPage extends React.Component{
             <StarshipList
             onItemSelected={this.onItemSelected}
             selectedItem={this.state.selectedItem}
+            itemType={'Starship'}
             renderItem={(item)=> `${item.name}`} />
         );
 

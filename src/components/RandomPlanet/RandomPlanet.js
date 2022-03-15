@@ -3,8 +3,8 @@ import { Box } from '@mui/material';
 import globalStyles from '../../style/globalStyles.module.css'
 import React from 'react';
 import SwapiService from '../../services/swapiService';
-import Spinner from '../Spinner/Spinner';
-import ErrorIndicator from '../ErrorIndicator/ErrorIndicator';
+import Spinner from '../common/Spinner/Spinner';
+import ErrorIndicator from '../common/ErrorIndicator/ErrorIndicator';
 
 
 export default class RandomPlanet extends React.Component {

@@ -1,12 +1,13 @@
 import React from "react";
+import DetailsTeaser from "../common/DetailsTeaser/DetailsTeaser";
 
 
 const withDataDetails = (View, getData, getImage) => {
     return class extends React.Component{
+
         constructor(props){
             super(props);
-        
-            this.state = {
+             this.state = {
                 currentItem: null,
                 image: null,
                 isLoading: true,
@@ -16,6 +17,7 @@ const withDataDetails = (View, getData, getImage) => {
     
         componentDidMount(){
             this.updateItem();
+            this.setState({isLoading: false})
         };
     
     
@@ -51,11 +53,11 @@ const withDataDetails = (View, getData, getImage) => {
 
         render(){
 
-            const {currentItem} = this.state;
+            const {currentItem, isLoading} = this.state;
 
-            if(!currentItem){
+            if(!currentItem && !isLoading){
                 return(
-                    <div>Select {this.props.itemType} on the list</div>
+                    <DetailsTeaser />   
                 )
             }
 

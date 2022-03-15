@@ -2,8 +2,8 @@ import styles from './ItemList.module.css';
 import globalStyles from '../../style/globalStyles.module.css';
 import { Box } from '@mui/material';
 import React from 'react';
-import Spinner from '../Spinner/Spinner';
-import ErrorIndicator from '../ErrorIndicator/ErrorIndicator';
+import Spinner from '../common/Spinner/Spinner';
+import ErrorIndicator from '../common/ErrorIndicator/ErrorIndicator';
 
 
 const ItemList = (props) => {

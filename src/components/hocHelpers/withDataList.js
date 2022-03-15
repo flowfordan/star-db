@@ -1,7 +1,7 @@
 import React from "react";
-import Spinner from "../Spinner/Spinner";
+import Spinner from "../common/Spinner/Spinner";
 
-const withData = (View, getData) => {
+const withDataList = (View, getData) => {
 
     return class extends React.Component{
         
@@ -47,4 +47,4 @@ const withData = (View, getData) => {
 
 };
 
-export default withData;
+export default withDataList;

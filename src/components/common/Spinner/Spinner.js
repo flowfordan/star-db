@@ -1,6 +1,6 @@
 import React from "react";
-import spinnerAnim from '../../common/Double Ring-1.5s-200px.svg';
-import globalStyles from '../../style/globalStyles.module.css';
+import spinnerAnim from '../../../common/Double Ring-1.5s-200px.svg';
+import globalStyles from '../../../style/globalStyles.module.css';
 
 const Spinner = () => {
     return(

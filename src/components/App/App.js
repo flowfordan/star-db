@@ -1,6 +1,6 @@
 import React from 'react';
 import CharactersPage from '../CharactersPage/CharactersPage';
-import ErrorIndicator from '../ErrorIndicator/ErrorIndicator';
+import ErrorIndicator from '../common/ErrorIndicator/ErrorIndicator';
 import Header from '../Header/Header';
 import RandomPlanet from '../RandomPlanet/RandomPlanet';
 import styles from './App.module.css'
