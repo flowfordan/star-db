@@ -1,6 +1,5 @@
 import React from "react";
 import Spinner from "../Spinner/Spinner";
-import SwapiService from "../../services/swapiService";
 
 const withData = (View, getData) => {
 
@@ -9,13 +8,11 @@ const withData = (View, getData) => {
         constructor(props){
             super(props);
     
-            this.state = {
-                
+            this.state = { 
                 itemList: null,
                 selectedItem: null,
                 error: false,
-                isLoading: true
-                 
+                isLoading: true 
             }
         };
     

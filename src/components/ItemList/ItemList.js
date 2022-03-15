@@ -2,16 +2,11 @@ import styles from './ItemList.module.css';
 import globalStyles from '../../style/globalStyles.module.css';
 import { Box } from '@mui/material';
 import React from 'react';
-import SwapiService from '../../services/swapiService';
 import Spinner from '../Spinner/Spinner';
 import ErrorIndicator from '../ErrorIndicator/ErrorIndicator';
-import withData from '../hocHelpers/withData';
 
-const { getAllPeople } = new SwapiService();
 
 const ItemList = (props) => {
-    
-    console.log(props)
 
     const {data} = props;
 
@@ -88,4 +83,4 @@ const ItemList = (props) => {
 
 };
 
-export default withData(ItemList, getAllPeople) ;
+export default ItemList;

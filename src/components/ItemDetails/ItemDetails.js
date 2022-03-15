@@ -2,7 +2,6 @@ import styles from './ItemDetails.module.css'
 import { Box } from '@mui/material';
 import globalStyles from '../../style/globalStyles.module.css'
 import React from 'react';
-import SwapiService from '../../services/swapiService';
 import Spinner from '../Spinner/Spinner';
 import ErrorIndicator from '../ErrorIndicator/ErrorIndicator';
 
@@ -25,70 +24,15 @@ export {
 };
 
 
-export default class ItemDetails extends React.Component{
-    constructor(props){
-        super(props);
+const ItemDetails = (props) => {
+
+    const {data} = props;
+
+    const {currentItem, image, isLoading, error} = data;
     
-    this.state = {
-        currentItem: null,
-        image: null,
-        isLoading: true,
-        error: false
-    }
-    };
-
-    swapiService = new SwapiService();
-
-    componentDidMount(){
-        this.updateItem();
-    };
-
-
-    componentDidUpdate(prevProps){
-        if(this.props.itemId != prevProps.itemId){
-           this.updateItem();
-           this.setState({isLoading: true})
-        }
-        
-    };
-
-    updateItem(){
-        const {itemId, getData, getImageUrl} = this.props;
-        
-        if(!itemId) {
-            return;
-        }
-
-        getData(itemId)
-        .then((currentItem) => {
-            this.setState({
-            currentItem, 
-            isLoading: false,
-            image: getImageUrl(currentItem)})
-        }).catch(this.onError);
-    };
-
-    onError = (err) => {
-        this.setState({
-            error: true,
-        isLoading: false})
-    };
-
-    render(){
-
-        if(!this.state.currentItem){
-            return(
-                <div>Select {this.props.itemType} on the list</div>
-            )
-        }
-
-        
-
         const CharacterView = () => {
 
-            const {currentItem, image} = this.state;
-
-            const {id, name, gender, birthYear, eyeColor} = currentItem;
+            const { name } = currentItem;
 
             return(
                 <React.Fragment>
@@ -99,7 +43,7 @@ export default class ItemDetails extends React.Component{
                 <div className={`${styles.cardImage} ${globalStyles.cardObjBackground}`} >
                     <img  className={styles.cardImageBody}
                     src={image}
-                    alt="Character">
+                    alt={`${props.itemType}`}>
                     </img>
                 </div>
                 
@@ -107,7 +51,7 @@ export default class ItemDetails extends React.Component{
                 ${globalStyles.typoItemsInfo} ${globalStyles.cardObjBackground}`}>
                     <ul className={globalStyles.infoList}>
                         {
-                        React.Children.map(this.props.children, 
+                        React.Children.map(props.children, 
                             (child) => {
                                 return React.cloneElement(child, {currentItem})})
                          }
@@ -131,7 +75,7 @@ export default class ItemDetails extends React.Component{
             )
         };
 
-        const {isLoading, error} = this.state;
+        // const {isLoading, error} = this.state;
 
         const hasData = !(isLoading || error);
         const errorMessage = error? <ErrorIndicator /> : null;
@@ -141,13 +85,13 @@ export default class ItemDetails extends React.Component{
         return(
             <div className={styles.cardWrapper}>
             <div className={`${globalStyles.typoChunkHeader} ${styles.cardHeader}`}>
-                Character
+                {props.itemType}
             </div>
                 {errorMessage}
                 {loading}
                 {renderedContent}          
             </div> 
         )
-    }
-
 };
+
+export default ItemDetails;
