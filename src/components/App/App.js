@@ -3,7 +3,8 @@ import CharactersPage from '../CharactersPage/CharactersPage';
 import ErrorIndicator from '../common/ErrorIndicator/ErrorIndicator';
 import Header from '../Header/Header';
 import RandomPlanet from '../RandomPlanet/RandomPlanet';
-import styles from './App.module.css'
+import styles from './App.module.css';
+import { SwapiServiceProvider } from '../../swapiServiceContext/swapiServiceContext';
 
 
 export default class App extends React.Component{
@@ -30,21 +31,22 @@ export default class App extends React.Component{
         };
 
         return(
-         <div className={styles.appWrapper}>
-            <div className={styles.header}>
-                <Header />
-            </div>
-
-            <div className={styles.body}>
-                <div className={styles.itemRandom}>
-                    <RandomPlanet />
+        <SwapiServiceProvider value={this.swapiService}>
+            <div className={styles.appWrapper}>
+                <div className={styles.header}>
+                    <Header />
                 </div>
 
-                <CharactersPage />
-                
+                <div className={styles.body}>
+                    <div className={styles.itemRandom}>
+                        <RandomPlanet />
+                    </div>
 
-            </div>
-        </div>   
+                    <CharactersPage />
+                    
+                </div>
+            </div> 
+        </SwapiServiceProvider>  
         )
 
     };

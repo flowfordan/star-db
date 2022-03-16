@@ -1,10 +1,7 @@
 import React from "react";
-import SwapiService from "../../services/swapiService";
 import ErrorIndicator from "../common/ErrorIndicator/ErrorIndicator";
-import ItemList from "../ItemList/ItemList";
 import ItemDetails, {Record} from "../ItemDetails/ItemDetails";
 import styles from './CharactersPage.module.css';
-import withData from "../hocHelpers/withDataList";
 import { 
     CharacterList, 
     StarshipList, 
@@ -13,6 +10,7 @@ import {
     CharacterDetails, 
     StarshipDetails, 
     PlanetDetails } from "../PagesComponents/Details";
+
 
 
 const Row = ({ left, right }) => {
@@ -31,8 +29,6 @@ const Row = ({ left, right }) => {
 
 
 export default class CharactersPage extends React.Component{
-
-    swapiService = new SwapiService();
     
     constructor(props){
         super(props);
