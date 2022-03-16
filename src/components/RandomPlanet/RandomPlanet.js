@@ -69,8 +69,8 @@ export default class RandomPlanet extends React.Component {
                             </img>
                         </div>
         
-                        <div className={`${styles.cardInfo} 
-                        ${globalStyles.typoItemsInfo} ${globalStyles.cardObjBackground}`}>
+                        <div className={`${globalStyles.cardInfo} 
+                        ${globalStyles.typoItemsInfo}`}>
                             <ul className={globalStyles.infoList}>
         
                                 <li className={globalStyles.infoListGroup}>

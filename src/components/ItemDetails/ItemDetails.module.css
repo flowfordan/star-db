@@ -47,7 +47,7 @@
     margin-bottom: auto;
     border-radius: 20px;
     height: auto;
-    max-height: 300px;
+    max-height: auto;
     display: flex;
 }
 
@@ -59,7 +59,6 @@
 }
 
 .cardInfo{
-    /* background-color: rgb(122, 122, 122); */
     grid-area: info;
     overflow: hidden;
     margin-top: 10px;
@@ -67,5 +66,5 @@
     margin-right: 20px;
     margin-bottom: 20px;
     border-radius: 20px;
-    height: 300px;
+    height: auto;
 }

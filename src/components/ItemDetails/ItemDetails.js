@@ -47,8 +47,8 @@ const ItemDetails = (props) => {
                             </img>
                         </div>
                 
-                        <div className={`${styles.cardInfo} 
-                        ${globalStyles.typoItemsInfo} ${globalStyles.cardObjBackground}`}>
+                        <div className={`${globalStyles.cardInfo} 
+                        ${globalStyles.typoItemsInfo}`}>
                             <ul className={globalStyles.infoList}>
                                 {
                                 React.Children.map(props.children, 

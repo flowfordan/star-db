@@ -59,7 +59,6 @@
 }
 
 .cardInfo{
-    /* background-color: rgb(122, 122, 122); */
     grid-area: info;
     overflow: hidden;
     margin-top: 10px;
@@ -67,5 +66,5 @@
     margin-right: 20px;
     margin-bottom: 20px;
     border-radius: 20px;
-    height: 200px;
+    height: auto;
 }

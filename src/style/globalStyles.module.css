@@ -90,6 +90,19 @@
 }
 
 /* cards styles */
-.cardObjBackground{
+.cardInfo{
+    background-color: #4b5361;
+    grid-area: info;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    height: auto;
+}
+
+/* header styles */
+.navBar{
     background-color: #4b5361;
 }

@@ -16,11 +16,31 @@
 
 }
 
-.headerMenu{
+.headerMenuWrapper{
     background-color: brown;
     grid-area: menu;
     margin-top: 10px;
     margin-left: 20px;
     margin-bottom: 10px;
     margin-right: 25px;
+}
+
+.headerMenu{
+    height: 100%;
+    border-radius: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+}
+
+.menuItem{
+    display: flex;
+    height: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: solid 1px black;
+    background-color: brown;
+    margin-bottom: 0;
+    /* justify-content: center; */
+    align-items: center;
 }
