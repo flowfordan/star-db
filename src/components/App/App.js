@@ -1,10 +1,12 @@
 import React from 'react';
-import CharactersPage from '../CharactersPage/CharactersPage';
+import CharactersPage from '../ItemsPage/CharactersPage';
 import ErrorIndicator from '../common/ErrorIndicator/ErrorIndicator';
 import Header from '../Header/Header';
 import RandomPlanet from '../RandomPlanet/RandomPlanet';
 import styles from './App.module.css';
 import { SwapiServiceProvider } from '../../swapiServiceContext/swapiServiceContext';
+import StarshipsPage from '../ItemsPage/StarshipsPage';
+import PlanetsPage from '../ItemsPage/PlanetsPage';
 
 
 export default class App extends React.Component{
@@ -42,7 +44,9 @@ export default class App extends React.Component{
                         <RandomPlanet />
                     </div>
 
-                    <CharactersPage />
+                    {/* <CharactersPage /> */}
+                    {/* <StarshipsPage /> */}
+                    <PlanetsPage/>
                     
                 </div>
             </div> 

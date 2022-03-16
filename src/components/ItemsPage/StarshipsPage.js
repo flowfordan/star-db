@@ -1,34 +1,12 @@
 import React from "react";
 import ErrorIndicator from "../common/ErrorIndicator/ErrorIndicator";
 import ItemDetails, {Record} from "../ItemDetails/ItemDetails";
-import styles from './CharactersPage.module.css';
-import { 
-    CharacterList, 
-    StarshipList, 
-    PlanetList } from "../PagesComponents/ItemLists";
-import { 
-    CharacterDetails, 
-    StarshipDetails, 
-    PlanetDetails } from "../PagesComponents/Details";
+import { StarshipList } from "../PagesComponents/ItemLists";
+import { StarshipDetails } from "../PagesComponents/Details";
 
+import Row from "./Row";
 
-
-const Row = ({ left, right }) => {
-    return(
-        <div className={styles.items}>
-            <div className={styles.itemsList}>
-                {left}
-            </div>
-            <div className={styles.itemInfo}>
-                {right} 
-            </div>
-        </div>  
-    );
-};
-
-
-
-export default class CharactersPage extends React.Component{
+export default class StarshipsPage extends React.Component{
     
     constructor(props){
         super(props);
@@ -58,24 +36,6 @@ export default class CharactersPage extends React.Component{
             )
         };
 
-        const charactersList = (
-            <CharacterList
-            onItemSelected={this.onItemSelected}
-            selectedItem={this.state.selectedItem}
-            renderItem={(item)=> `${item.name}, ${item.birthYear}`}
-            itemType={'Character'} />
-        );
-
-        const personDetails = (
-            <CharacterDetails 
-            itemId={this.state.selectedItem}
-            itemType={'Character'}>
-                <Record field='birthYear' label='Birth Year'/> 
-                <Record field='gender' label='Gender'/>
-                <Record field='eyeColor' label='Eye Color'/>
-            </CharacterDetails>
-        );
-
         const starshipsList = (
             <StarshipList
             onItemSelected={this.onItemSelected}
@@ -97,12 +57,9 @@ export default class CharactersPage extends React.Component{
     
         return(
             <React.Fragment>
-            <div>
-                <Row left={charactersList} right={personDetails}/>
-            </div>
-            <div>
+            
                 <Row left={starshipsList} right={starshipDetails}/>
-            </div>
+            
             </React.Fragment>
         )
     };
