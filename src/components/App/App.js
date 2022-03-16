@@ -1,5 +1,4 @@
 import React from 'react';
-import CharactersPage from '../ItemsPage/CharactersPage';
 import ErrorIndicator from '../common/ErrorIndicator/ErrorIndicator';
 import Header from '../Header/Header';
 import RandomPlanet from '../RandomPlanet/RandomPlanet';
@@ -7,7 +6,8 @@ import styles from './App.module.css';
 import { SwapiServiceProvider } from '../../swapiServiceContext/swapiServiceContext';
 import StarshipsPage from '../ItemsPage/StarshipsPage';
 import PlanetsPage from '../ItemsPage/PlanetsPage';
-
+import CharactersPage from '../ItemsPage/CharactersPage';
+import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 export default class App extends React.Component{
 
@@ -34,22 +34,27 @@ export default class App extends React.Component{
 
         return(
         <SwapiServiceProvider value={this.swapiService}>
-            <div className={styles.appWrapper}>
-                <div className={styles.header}>
-                    <Header />
-                </div>
-
-                <div className={styles.body}>
-                    <div className={styles.itemRandom}>
-                        <RandomPlanet />
+            <Router>
+                <div className={styles.appWrapper}>
+                    <div className={styles.header}>
+                        <Header />
                     </div>
 
-                    {/* <CharactersPage /> */}
-                    {/* <StarshipsPage /> */}
-                    <PlanetsPage/>
-                    
-                </div>
-            </div> 
+                    <div className={styles.body}>
+                        <div className={styles.itemRandom}>
+                            <RandomPlanet />
+                        </div>
+                        
+                        <Routes>
+                            <Route path='/' element={<h2>Privet</h2>}></Route>
+                            <Route path='/characters' element={<CharactersPage/>}></Route>
+                            <Route path='/planets' element={<PlanetsPage/>}></Route>
+                            <Route path='/starships' element={<StarshipsPage/>}></Route>
+                            
+                        </Routes>
+                    </div>
+                </div> 
+            </Router>
         </SwapiServiceProvider>  
         )
 

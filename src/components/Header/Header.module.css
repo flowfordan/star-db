@@ -7,6 +7,10 @@
     grid-template-columns: 350px auto;
 }
 
+.headerWrapper a{
+    text-decoration: none
+}
+
 .headerLogo{
     background-color: aqua;
     grid-area: logo;
