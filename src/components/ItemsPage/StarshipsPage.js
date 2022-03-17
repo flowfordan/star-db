@@ -4,6 +4,7 @@ import { StarshipList } from "../PagesComponents/ItemLists";
 import { Routes, Route} from "react-router-dom";
 import styles from './ItemsPage.module.css';
 import StarshipDetailsContainer from "../PagesComponents/StarshipDetailsContainer";
+import DetailsTeaser from "../common/DetailsTeaser/DetailsTeaser";
 
 
 const StarshipsPage = (props) => {
@@ -28,6 +29,7 @@ const StarshipsPage = (props) => {
                     {starshipsList}
                 </div>
                 <Routes>
+                    <Route path='/' element={<DetailsTeaser/>} /> 
                     <Route path=':id' element={starshipsDetails} /> 
                 </Routes>
             </div>

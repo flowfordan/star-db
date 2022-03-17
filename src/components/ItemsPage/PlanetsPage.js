@@ -4,6 +4,7 @@ import { PlanetList } from "../PagesComponents/ItemLists";
 import { Routes, Route} from "react-router-dom";
 import styles from './ItemsPage.module.css';
 import PlanetDetailsContainer from "../PagesComponents/PlanetDetailsContainer";
+import DetailsTeaser from "../common/DetailsTeaser/DetailsTeaser";
 
 
 
@@ -29,6 +30,7 @@ const PlanetsPage = (props) => {
                     {planetsList}
                 </div>
                 <Routes>
+                    <Route path='/' element={<DetailsTeaser/>} /> 
                     <Route path=':id' element={planetsDetails} /> 
                 </Routes>
             </div>

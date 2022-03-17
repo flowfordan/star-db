@@ -1,5 +1,7 @@
 import React from "react";
 import DetailsTeaser from "../common/DetailsTeaser/DetailsTeaser";
+import Spinner from "../common/Spinner/Spinner";
+
 
 
 const withDataDetails = (View, getData, getImage) => {
@@ -59,7 +61,7 @@ const withDataDetails = (View, getData, getImage) => {
 
             if(!currentItem && !isLoading){
                 return(
-                    <DetailsTeaser />   
+                    <Spinner />   
                 )
             }
 

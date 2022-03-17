@@ -4,6 +4,7 @@ import { CharacterList } from "../PagesComponents/ItemLists";
 import { Routes, Route} from "react-router-dom";
 import styles from './ItemsPage.module.css';
 import CharacterDetailsContainer from "../PagesComponents/CharacterDetailsContainer";
+import DetailsTeaser from "../common/DetailsTeaser/DetailsTeaser";
 
 
 
@@ -29,6 +30,7 @@ const CharactersPage = (props) => {
                     {charactersList}
                 </div>
                 <Routes>
+                    <Route path='/' element={<DetailsTeaser/>} /> 
                     <Route path=':id' element={charactersDetails} /> 
                 </Routes>
             </div>

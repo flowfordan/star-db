@@ -10,7 +10,7 @@
     color: white;
 }
 
-.typoItems, .typoItemName, .typoItemsInfo, .typoChunkHeader{
+.typoItems, .typoItemName, .typoItemsInfo, .typoChunkHeader, .infoListGroup a{
     color: white;
 }
 
@@ -31,9 +31,9 @@
     font-weight: lighter;
 }
 
-/* originally for ul tag */
+/* for ul tag - info and link-lists */
+
 .infoList{
-    /* background-color: rgb(150, 150, 150, 0.3); */
     list-style-type: none;
     line-height: 2;
     padding-left: 20px;
@@ -71,7 +71,7 @@
 .infoListElSelect:hover{
     background-color: #4b5361;
     cursor: pointer;
-    transition: transform 0.2s, background-color 0.2s, border-right 0.2s;
+    transition: transform 0.1s, background-color 0.2s, border-right 0.1s;
 }
 
 .infoListElSelect:active{
