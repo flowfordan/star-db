@@ -4,6 +4,7 @@ import { Box } from '@mui/material';
 import React from 'react';
 import Spinner from '../common/Spinner/Spinner';
 import ErrorIndicator from '../common/ErrorIndicator/ErrorIndicator';
+import { Link, NavLink } from 'react-router-dom';
 
 
 const ItemList = (props) => {
@@ -15,21 +16,17 @@ const ItemList = (props) => {
     const listItems = itemList.map((item) => {
         const {id} = item;
 
-        let isItemActive = false;
-
         const label = props.renderItem(item);
         
-        if(props.selectedItem == id){
-            isItemActive = true}
 
         return (
             <li className={globalStyles.infoListGroup} 
-            key={id}
-            onClick={() => props.onItemSelected(id)}>
-                <div className={isItemActive? globalStyles.infoListElSelected:globalStyles.infoListElSelect}>
+            key={id}>
+                <NavLink to={`${id}`} key={id}
+            className={({isActive})=> isActive? globalStyles.infoListElSelected:globalStyles.infoListElSelect}>
                     {label}
-                </div>
-            </li>
+                </NavLink>
+            </li>  
         )
     });   
     

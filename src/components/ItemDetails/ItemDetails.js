@@ -4,6 +4,7 @@ import globalStyles from '../../style/globalStyles.module.css'
 import React from 'react';
 import Spinner from '../common/Spinner/Spinner';
 import ErrorIndicator from '../common/ErrorIndicator/ErrorIndicator';
+import { useParams } from 'react-router-dom';
 
 
 const Record = ({ currentItem, field, label }) => {

@@ -1,68 +1,39 @@
 import React from "react";
 import ErrorIndicator from "../common/ErrorIndicator/ErrorIndicator";
-import ItemDetails, {Record} from "../ItemDetails/ItemDetails";
 import { StarshipList } from "../PagesComponents/ItemLists";
-import { StarshipDetails } from "../PagesComponents/Details";
-
-import Row from "./Row";
-
-export default class StarshipsPage extends React.Component{
-    
-    constructor(props){
-        super(props);
-        this.state = {
-            selectedItem: null,
-            hasError: false,
-        };
-    };
+import { Routes, Route} from "react-router-dom";
+import styles from './ItemsPage.module.css';
+import StarshipDetailsContainer from "../PagesComponents/StarshipDetailsContainer";
 
 
-    onItemSelected = (id) => {
-        this.setState({
-            selectedItem: id,
-        })
-    };
+const StarshipsPage = (props) => {
 
-    componentDidCatch(){
-        this.setState({hasError: true});
-    };
+    const starshipsList = (
+        <StarshipList
+        itemType={'Starship'}
+        renderItem={(item)=> `${item.name}`} />
+    );
 
-    render(){
-        
-        
-    if(this.state.hasError){
-            return(
-                <ErrorIndicator />
-            )
-        };
+    const starshipsDetails = (
+        <div className={styles.itemInfo}>
+            <StarshipDetailsContainer/>
+        </div>
+    );
 
-        const starshipsList = (
-            <StarshipList
-            onItemSelected={this.onItemSelected}
-            selectedItem={this.state.selectedItem}
-            itemType={'Starship'}
-            renderItem={(item)=> `${item.name}`} />
-        );
-
-
-        const starshipDetails = (
-            <StarshipDetails 
-            itemId={this.state.selectedItem}
-            itemType={'Starship'}>
-                <Record field='model' label='Model'/> 
-                <Record field='length' label='Length (m)'/>
-                <Record field='costInCredits' label='Cost (g.c)'/>
-            </StarshipDetails>
-        );
-    
-        return(
-            <React.Fragment>
+    return(
+        <React.Fragment>
             
-                <Row left={starshipsList} right={starshipDetails}/>
-            
-            </React.Fragment>
-        )
-    };
+            <div className={styles.items}>
+                <div className={styles.itemsList}>
+                    {starshipsList}
+                </div>
+                <Routes>
+                    <Route path=':id' element={starshipsDetails} /> 
+                </Routes>
+            </div>
+        
+        </React.Fragment>
+    )
 };
 
-
+export default StarshipsPage;

@@ -47,9 +47,11 @@ export default class App extends React.Component{
                         
                         <Routes>
                             <Route path='/' element={<h2>Privet</h2>}></Route>
-                            <Route path='/characters' element={<CharactersPage/>}></Route>
-                            <Route path='/planets' element={<PlanetsPage/>}></Route>
-                            <Route path='/starships' element={<StarshipsPage/>}></Route>
+                            <Route path='/characters/*' element={<CharactersPage/>}></Route>
+                            <Route path='/planets/*' element={<PlanetsPage/>}></Route>
+                            <Route path='/starships/*' element={<StarshipsPage/>}></Route>
+
+                            
                             
                         </Routes>
                     </div>

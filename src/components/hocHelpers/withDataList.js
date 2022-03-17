@@ -12,7 +12,8 @@ const withDataList = (View, getData) => {
                 itemList: null,
                 selectedItem: null,
                 error: false,
-                isLoading: true 
+                isLoading: true,
+                
             }
         };
     

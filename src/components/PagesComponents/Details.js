@@ -22,4 +22,6 @@ const CharacterDetails = withDataDetails(ItemDetails, getPerson, getPersonImage)
 const StarshipDetails = withDataDetails(ItemDetails, getStarship, getStarshipImage);
 const PlanetDetails = withDataDetails(ItemDetails, getPlanet, getPlanetImage);
 
+
+
 export { CharacterDetails, StarshipDetails, PlanetDetails };

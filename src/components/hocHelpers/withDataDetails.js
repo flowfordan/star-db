@@ -3,6 +3,8 @@ import DetailsTeaser from "../common/DetailsTeaser/DetailsTeaser";
 
 
 const withDataDetails = (View, getData, getImage) => {
+
+    
     return class extends React.Component{
 
         constructor(props){
