@@ -45,6 +45,12 @@
 .infoListGroup{
     border-bottom: 1px solid;
     border-color: rgb(255, 255, 255, 0.3);
+    
+}
+
+.infoListGroup a{
+    text-decoration: none;
+    display: block
 }
 
 .infoListTerm{
@@ -57,6 +63,8 @@
 
 .infoListElSelect, .infoListElSelected{
     text-indent: 10px;
+    height: auto;
+    width: auto;
     
 }
 
@@ -79,6 +87,7 @@
     cursor: pointer;
     border-right: solid 3px white;
     transform: scale(1);
+    
 }
 
 /* preloader positioning */
