@@ -3,14 +3,15 @@
     background-color: #3d4450;
     border-radius: 20px;
     border: 1px solid;
-    border-color: rgb(255, 255, 255, 0.3);
+    border-color: rgb(255, 255, 255, 0.2);
   }
 
 .typoObjectHeader{
     color: white;
 }
 
-.typoItems, .typoItemName, .typoItemsInfo, .typoChunkHeader, .infoListGroup a{
+.typoItems, .typoItemName, .typoItemsInfo, 
+.typoChunkHeader, .infoListGroup a, .navBar a{
     color: white;
 }
 
@@ -19,6 +20,11 @@
     font-weight: bold;
     border-bottom: 1px solid;
     border-color: rgb(255, 255, 255, 0.5);
+}
+
+.navBar{
+    font-size: large;
+    font-weight: normal;
 }
 
 .typoItemsInfo{
@@ -41,7 +47,7 @@
     
 }
 
-/* originally for <li> tag */
+/* for <li> tag and Header menu*/
 .infoListGroup{
     border-bottom: 1px solid;
     border-color: rgb(255, 255, 255, 0.3);
@@ -68,26 +74,52 @@
     
 }
 
-.infoListElSelect:hover{
-    background-color: #4b5361;
+/* header */
+.menuItem, .menuItemSelected{
+    display: flex;
+    height: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 0;
+    align-items: center;
+    /* flex-grow: 1 */
+}
+
+
+.infoListElSelect:hover, .menuItem:hover{
+    background-color: #677285;
     cursor: pointer;
     transition: transform 0.1s, background-color 0.2s, border-right 0.1s;
 }
 
-.infoListElSelect:active{
+.infoListElSelect:active, .menuItem:active{
     background-color: #677285;
     cursor: pointer;
     transform: scale(1.07);
-    box-shadow: 0 0 0 0 white;
-    border-right: solid 10px white;
+    
+}
+
+.infoListElSelect:active{
+    border-right: solid 5px white;
+}
+
+.menuItem:active{
+    border-bottom: solid 5px white;
+}
+
+
+.infoListElSelected, .menuItemSelected{
+    background-color: #565f6e;
+    cursor: pointer;
+    transform: scale(1); 
 }
 
 .infoListElSelected{
-    background-color: #565f6e;
-    cursor: pointer;
-    border-right: solid 3px white;
-    transform: scale(1);
-    
+    border-right: solid 3px white; 
+}
+
+.menuItemSelected{
+    border-bottom: solid 3px white; 
 }
 
 /* preloader positioning */
@@ -109,9 +141,4 @@
     margin-bottom: 20px;
     border-radius: 20px;
     height: auto;
-}
-
-/* header styles */
-.navBar{
-    background-color: #4b5361;
 }

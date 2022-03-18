@@ -1,29 +1,37 @@
 import styles from './Header.module.css';
 import globalStyles from '../../style/globalStyles.module.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import HeaderLogo from './HeaderLogo';
 
 
 const Header = () => {
     return (
         <div className={styles.headerWrapper}>
-            <Link to="/">
+            <NavLink to="/">
             <div className={styles.headerLogo}>
-                Logo
+                <HeaderLogo />
             </div>
-            </Link>
+            </NavLink>
             <div className={styles.headerMenuWrapper}>
-                <div className={`${styles.headerMenu} ${globalStyles.navBar}`}>
+                <div className={`${styles.headerMenu} 
+                ${globalStyles.navBar} ${globalStyles.basicBox}`}>
                     
-                    <Link to="/characters" className={styles.menuItem}>
+                    <NavLink to="/characters" 
+                    className={({isActive})=> isActive? 
+                    globalStyles.menuItemSelected:globalStyles.menuItem}>
                         <span>Characters</span>
-                    </Link>
+                    </NavLink>
                     
-                    <Link to="/starships" className={styles.menuItem}>
+                    <NavLink to="/starships"
+                    className={({isActive})=> isActive? 
+                    globalStyles.menuItemSelected:globalStyles.menuItem}>
                         <span >Starships</span>
-                    </Link>
-                    <Link to="/planets" className={styles.menuItem}>
+                    </NavLink>
+                    <NavLink to="/planets" 
+                    className={({isActive})=> isActive? 
+                    globalStyles.menuItemSelected:globalStyles.menuItem}>
                         <span >Planets</span>
-                    </Link>
+                    </NavLink>
                 </div>
             </div>
         </div>

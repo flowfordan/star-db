@@ -1,0 +1,45 @@
+.logoWrapper{
+ display: flex;
+ color: white;
+ 
+}
+
+.letterChunkWrapper{
+    display: flex;
+    border: solid 1px black;
+    flex-grow: 1;
+}
+
+.letterChunkWrapperStretch{
+    display: flex;
+    /* background-color: coral; */
+    border: solid 1px rgb(97, 26, 65);
+    flex-grow: 3;
+}
+
+
+.letterChunk{
+    /* display: inline-block; */
+    font-size: 20px;
+    transform: scaleY(0.5);
+    transform: scaleX(1.5);
+    transform-origin: 0 0;
+    margin-bottom: -50%;
+}
+
+.letterChunkStretch{
+    /* display: inline-block; */
+    font-size: 20px;
+    transform: scaleY(1);
+    transform: scaleX(4);
+    transform-origin: 0 0;
+    margin-bottom: -50%;
+}
+
+.regularChunk{
+
+}
+
+.stretchedChunk{
+
+}

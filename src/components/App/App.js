@@ -35,28 +35,35 @@ export default class App extends React.Component{
         return(
         <SwapiServiceProvider value={this.swapiService}>
             <Router>
+
                 <div className={styles.appWrapper}>
                     <div className={styles.header}>
                         <Header />
                     </div>
+                    
+                    
 
                     <div className={styles.body}>
                         <div className={styles.itemRandom}>
                             <RandomPlanet />
                         </div>
-                        
                         <Routes>
-                            <Route path='/' element={<h2>Privet</h2>}></Route>
-                            <Route path='/characters/*' element={<CharactersPage/>}></Route>
-                            <Route path='/planets/*' element={<PlanetsPage/>}></Route>
-                            <Route path='/starships/*' element={<StarshipsPage/>}></Route>
-
-                            
-                            
-                        </Routes>
+                        
+                        <Route path='/' element={<h2>Privet</h2>}></Route>
+                        <Route path='/characters/*' element={<CharactersPage/>}></Route>
+                        <Route path='/planets/*' element={<PlanetsPage/>}></Route>
+                        <Route path='/starships/*' element={<StarshipsPage/>}></Route>
+                        <Route path='*' element={<h2>404!!!!</h2>}></Route>
+                        </Routes>    
+                        
                     </div>
+
+                    
+
+                    
                 </div> 
-            </Router>
+                </Router>
+                
         </SwapiServiceProvider>  
         )
 
