@@ -5,9 +5,8 @@ export const HeaderLogo = () => {
 
     const phrase = `STAR WARS DB`
     const phraseArr = phrase.split('')
-    console.log(phraseArr)
-    const logoLetters = phraseArr.map(letter => {
-        return <span className={styles.letterWrapper}>{letter}</span>
+    const logoLetters = phraseArr.map((letter, idx) => {
+        return <span key={idx} className={styles.letterWrapper}>{letter}</span>
     })
 
 

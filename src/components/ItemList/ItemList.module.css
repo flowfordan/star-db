@@ -33,3 +33,8 @@
     margin-left: 0;
     margin-right: 0;
 }
+
+.pagesNumbers{
+    display: flex;
+    justify-content: space-between;
+}
