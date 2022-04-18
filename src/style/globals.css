@@ -1,0 +1,38 @@
+html,
+body {
+	margin: 0;
+	padding: 0;
+	color: var(--white);
+	background: #23282e;
+
+	font-family: 'Lexend Deca', sans-serif;
+    transition: all 0.5s;
+}
+
+a {
+	text-decoration: none;
+
+	color: inherit;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+:root {
+	--black: #3B434E;
+
+	--grey-light:#EBEBEB;
+
+	--white: white;
+
+	--primary: #23282e;
+	--primary-hover: #313841;
+    
+	--red: #FC836D;
+
+	--green: #1DC37E;
+	--green-light: #C8F8E4;
+
+	--font-family: 'Lexend Deca', sans-serif;
+}

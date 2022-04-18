@@ -1,6 +1,6 @@
 import React from 'react';
 import ErrorIndicator from '../common/ErrorIndicator/ErrorIndicator';
-import Header from '../Header/Header';
+import {Header} from '../Header/Header';
 import RandomPlanet from '../RandomPlanet/RandomPlanet';
 import styles from './App.module.css';
 import { SwapiServiceProvider } from '../../swapiServiceContext/swapiServiceContext';
@@ -47,19 +47,16 @@ export default class App extends React.Component{
                         <div className={styles.itemRandom}>
                             <RandomPlanet />
                         </div>
+
                         <Routes>
-                        
-                        <Route path='/' element={<h2>Privet</h2>}></Route>
-                        <Route path='/characters/*' element={<CharactersPage/>}></Route>
-                        <Route path='/planets/*' element={<PlanetsPage/>}></Route>
-                        <Route path='/starships/*' element={<StarshipsPage/>}></Route>
-                        <Route path='*' element={<h2>404!!!!</h2>}></Route>
+                            <Route path='/' element={<h2>Welcome to StarDB</h2>}></Route>
+                            <Route path='/characters/*' element={<CharactersPage/>}></Route>
+                            <Route path='/planets/*' element={<PlanetsPage/>}></Route>
+                            <Route path='/starships/*' element={<StarshipsPage/>}></Route>
+                            <Route path='*' element={<h2>404. Wrong page</h2>}></Route>
                         </Routes>    
                         
                     </div>
-
-                    
-
                     
                 </div> 
                 </Router>

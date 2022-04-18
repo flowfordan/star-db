@@ -12,7 +12,6 @@
 
 .body{
     width: auto;
-    background-color: rgb(168, 255, 255);
     height: auto;
     display: grid;
     grid-template-areas: 
@@ -23,7 +22,6 @@
 }
 
 .itemRandom{
-    background-color: rgb(185, 185, 185);
     grid-area: 'random';
     margin: 5px;
     

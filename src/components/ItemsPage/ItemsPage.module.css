@@ -1,5 +1,4 @@
 .items{
-    background-color: rgb(236, 163, 163);
     grid-area: items;
     margin: 5px;
     display: grid;
@@ -10,12 +9,10 @@
 }
 
 .itemsList{
-    background-color: rgb(173, 173, 173);
     grid-area: list;
 }
 
 .itemInfo{
     margin-left: 20px;
-    background-color: chocolate;
     grid-area: info;
 }

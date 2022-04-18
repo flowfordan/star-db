@@ -1,16 +1,16 @@
 import styles from './Header.module.css';
 import globalStyles from '../../style/globalStyles.module.css';
 import { NavLink } from 'react-router-dom';
-import HeaderLogo from './HeaderLogo';
+import {HeaderLogo} from './HeaderLogo';
 
 
-const Header = () => {
+export const Header = () => {
     return (
         <div className={styles.headerWrapper}>
             <NavLink to="/">
-            <div className={styles.headerLogo}>
-                <HeaderLogo />
-            </div>
+                <div className={styles.headerLogo}>
+                    <HeaderLogo />
+                </div>
             </NavLink>
             <div className={styles.headerMenuWrapper}>
                 <div className={`${styles.headerMenu} 
@@ -27,6 +27,7 @@ const Header = () => {
                     globalStyles.menuItemSelected:globalStyles.menuItem}>
                         <span >Starships</span>
                     </NavLink>
+
                     <NavLink to="/planets" 
                     className={({isActive})=> isActive? 
                     globalStyles.menuItemSelected:globalStyles.menuItem}>
@@ -38,4 +39,3 @@ const Header = () => {
     )
 };
 
-export default Header
