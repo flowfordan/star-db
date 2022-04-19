@@ -1,5 +1,4 @@
 import styles from './ItemList.module.css';
-import globalStyles from '../../style/globalStyles.module.css';
 import { Box } from '@mui/material';
 import React from 'react';
 import Spinner from '../common/Spinner/Spinner';
@@ -10,7 +9,6 @@ import { PagesNums } from './PagesNums';
 
 const ItemList = (props) => {
 
-    console.log('item list props', props)
     const {onPageChange} = props
     const {data} = props;
 
@@ -22,13 +20,17 @@ const ItemList = (props) => {
         const label = props.renderItem(item);
         
         return (
-            <li className={globalStyles.infoListGroup} 
-            key={id}>
+            <li className={styles.listItem}
+                    key={id}>
                 <NavLink to={`${id}`} key={id}
-                className={({isActive})=> isActive? globalStyles.infoListElSelected:globalStyles.infoListElSelect}>
+                className={({isActive})=> isActive? styles.linkActive:styles.link}>
+                    
                     {label}
-                </NavLink>
-            </li>  
+                   
+                </NavLink> 
+                </li> 
+                 
+            
         )
     });   
     
@@ -36,12 +38,10 @@ const ItemList = (props) => {
     const ListView = () => {
         return(
             <>
-                <Box className={`${styles.list} ${globalStyles.basicBox}`}>
-                        <div className={`${styles.listItems} ${globalStyles.typoItemsInfo}`}>
-                            <ul className={globalStyles.infoList}>
+                <Box className={styles.list}>
+                            <ul className={styles.infoList}>
                                 {listItems}
                             </ul>
-                        </div>
                 </Box>
             </>
         )
@@ -50,9 +50,9 @@ const ItemList = (props) => {
     const PreloaderView = () => {
         return(
             <>
-            <Box className={`${styles.list} ${globalStyles.basicBox}`}>
-                    <div className={`${styles.listItems} ${globalStyles.typoItemsInfo}`}>
-                        <ul className={globalStyles.infoList}>
+            <Box className={`${styles.list} ${styles.basicBox}`}>
+                    <div className={`${styles.listItems} ${styles.typoItemsInfo}`}>
+                        <ul className={styles.infoList}>
                         <Spinner/>
                         </ul>
                     </div>
@@ -68,19 +68,24 @@ const ItemList = (props) => {
 
     return(
             <div className={styles.listWrapper}>
+                
                 <div className={styles.listHeader}>
                     {`${props.itemType} List`}
                 </div>
 
-                {errorMessage}
-                {loading}
-                {renderedContent}
-                
-                <div className={styles.pagesNumbers}>
-                    <PagesNums pagesCount={pagesCount} itemsPerPage={itemsPerPage}
-                    currentPage={currentPage} onPageChange={onPageChange}/>
+                <div className={styles.listContent}>
+                    {errorMessage}
+                    {loading}
+                    {renderedContent}
                     
+                    
+                    <div className={styles.pagesNumbers}>
+                        <PagesNums pagesCount={pagesCount} itemsPerPage={itemsPerPage}
+                        currentPage={currentPage} onPageChange={onPageChange}/>
+                        
+                    </div>
                 </div>
+                
                         
             </div>
     )

@@ -1,11 +1,10 @@
 .items{
     grid-area: items;
-    margin: 5px;
     display: grid;
     grid-template-areas: 
     'list info';
-    grid-template-columns: 350px auto;
-    
+    grid-template-columns: minmax(200px, 350px) minmax(auto,1fr);
+    gap: 20px;
 }
 
 .itemsList{
@@ -13,6 +12,5 @@
 }
 
 .itemInfo{
-    margin-left: 20px;
     grid-area: info;
 }

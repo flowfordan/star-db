@@ -1,40 +1,67 @@
 .listWrapper{
-    height: 100%;
-    width: auto;
     display: grid;
+    min-height: 100%;
     grid-template-areas: 
     'header'
-    'list';
-    grid-template-rows: 30px auto;
+    'content';
+    grid-template-rows: auto 1fr;
+    gap: 8px;
+    
 }
 
 
 .listHeader{
-    height: auto;
-    width: auto;
+    color: var(--grey-main);
     grid-area: header;
-    margin-top: 5px;
-    margin-left: 20px;
-    margin-right: 20px;
+    font-weight: 200;
+    font-size: 16px;
+
+}
+
+.listContent{
+    background-color: var(--primary);
+    border-radius: var(--dist);
+    grid-area: content;
+    display: grid;
+    grid-template-areas: 
+    'list'
+    'pages';
+    grid-template-rows: 1fr auto ;
+    gap: 8px;
+    
 }
 
 .list{
     grid-area: list;
-    height: 100%;
-    width: 100%;
-
+    background-color: var(--primary-light);
+    border-radius: var(--dist);
+    padding: var(--dist) 0 var(--dist) var(--dist);
 }
 
-.listItems{
+.listItem {
+    border-bottom: 1px solid var(--grey-dark);
+}
+
+.link, .linkActive {
+    padding: 5px;
     
-    height: auto;
-    width: auto;
-    margin-top: 10px;
-    margin-left: 0;
-    margin-right: 0;
+}
+
+.link:hover{
+    background-color: var(--primary-hover); 
+}
+
+.linkActive{
+    color: var(--white);
+    border-left: 5px solid var(--white)
+}
+
+.infoListGroup{
+    border: 1px solid white;
 }
 
 .pagesNumbers{
     display: flex;
     justify-content: space-between;
+    grid-area: pages;
 }

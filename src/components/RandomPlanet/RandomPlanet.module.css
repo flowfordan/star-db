@@ -25,10 +25,9 @@
     'name name'
     'image info';
     grid-template-columns: 350px auto;
-    grid-template-rows: 50px auto;
-    
-    height: auto;
-    width: auto;
+    grid-template-rows: auto 1fr;
+    background-color: var(--primary);
+    border-radius: var(--dist);
 }
 
 .cardName{

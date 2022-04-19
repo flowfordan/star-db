@@ -19,15 +19,15 @@ export const PagesNums = (props) => {
 
     let numbersRender = numberArr.map((item, idx) => {
         return(
-            <span key={idx} className={styles.pagenumRegular} onClick={() => onPageChange(item)}>{item}</span>
+            <span key={idx} className={item === currentPage?  styles.pagenumActive : styles.pagenumRegular} onClick={() => onPageChange(item)}>{item}</span>
         )
     });
 
     return(
         <div className={styles.numsWrapper}>
-        <span onClick={() => onPageChange(1)}>{`<<`}</span>
+        <span className={styles.pagenumRegular} onClick={() => onPageChange(1)}>{`<<`}</span>
             {numbersRender}
-         <span onClick={() => onPageChange(pagesCount)}>{`>>`}</span>
+         <span className={styles.pagenumRegular} onClick={() => onPageChange(pagesCount)}>{`>>`}</span>
         </div>
     )
 }

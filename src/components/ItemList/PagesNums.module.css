@@ -1,11 +1,23 @@
 .numsWrapper{
-    background-color: var(--green);
+    background-color: var(--primary-light);
     cursor: pointer;
     display: flex;
     justify-content: space-between;
+    align-content: center;
+    border-radius: var(--dist);
+    overflow: hidden;
+
 }
 
-.pagenumRegular{
-    padding: 5px;
-    
+.pagenumRegular, .pagenumActive{
+    padding: 5px 10px;
+}
+
+.pagenumRegular:hover{
+    background-color: var(--primary-hover);
+}
+
+.pagenumActive{
+    border-bottom: 2px solid var(--white);
+    color: var(--white);
 }

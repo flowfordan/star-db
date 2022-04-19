@@ -1,6 +1,5 @@
 import styles from './ItemDetails.module.css'
 import { Box } from '@mui/material';
-import globalStyles from '../../style/globalStyles.module.css'
 import React from 'react';
 import Spinner from '../common/Spinner/Spinner';
 import ErrorIndicator from '../common/ErrorIndicator/ErrorIndicator';
@@ -9,11 +8,11 @@ import { useParams } from 'react-router-dom';
 
 const Record = ({ currentItem, field, label }) => {
     return(
-        <li className={globalStyles.infoListGroup}>
-            <span className={globalStyles.infoListTerm}>
+        <li className={styles.infoListGroup}>
+            <span className={styles.infoListTerm}>
                 {label}
             </span>
-            <span className={globalStyles.infoListEl}>
+            <span className={styles.infoListEl}>
                 {currentItem[field]}
             </span>
         </li> 
@@ -37,20 +36,20 @@ const ItemDetails = (props) => {
 
             return(
                 <React.Fragment>
-                    <Box className={`${styles.card} ${globalStyles.basicBox}`}>
-                        <div className={`${styles.cardName} ${globalStyles.typoItemName}`}>
+                    <Box className={`${styles.card} ${styles.basicBox}`}>
+                        <div className={`${styles.cardName} ${styles.typoItemName}`}>
                             {name}
                         </div>
-                        <div className={`${styles.cardImage} ${globalStyles.cardObjBackground}`} >
+                        <div className={`${styles.cardImage} ${styles.cardObjBackground}`} >
                             <img  className={styles.cardImageBody}
                             src={image}
                             alt={`${props.itemType}`}>
                             </img>
                         </div>
                 
-                        <div className={`${globalStyles.cardInfo} 
-                        ${globalStyles.typoItemsInfo}`}>
-                            <ul className={globalStyles.infoList}>
+                        <div className={`${styles.cardInfo} 
+                        ${styles.typoItemsInfo}`}>
+                            <ul className={styles.infoList}>
                                 {
                                 React.Children.map(props.children, 
                                     (child) => {
@@ -67,7 +66,7 @@ const ItemDetails = (props) => {
         const PreloaderView = () => {
             return(
                 <React.Fragment>
-                    <Box className={globalStyles.basicBox}>
+                    <Box className={styles.basicBox}>
                         <Spinner />
                     </Box>
                 </React.Fragment>
@@ -82,7 +81,7 @@ const ItemDetails = (props) => {
 
         return(
             <div className={styles.cardWrapper}>
-            <div className={`${globalStyles.typoChunkHeader} ${styles.cardHeader}`}>
+            <div className={`${styles.typoChunkHeader} ${styles.cardHeader}`}>
                 {props.itemType}
             </div>
                 {errorMessage}

@@ -1,6 +1,7 @@
 import React from 'react';
 import ErrorIndicator from '../common/ErrorIndicator/ErrorIndicator';
 import {Header} from '../Header/Header';
+import { Footer } from '../Footer/Footer';
 import RandomPlanet from '../RandomPlanet/RandomPlanet';
 import styles from './App.module.css';
 import { SwapiServiceProvider } from '../../swapiServiceContext/swapiServiceContext';
@@ -37,6 +38,7 @@ export default class App extends React.Component{
             <Router>
 
                 <div className={styles.appWrapper}>
+
                     <div className={styles.header}>
                         <Header />
                     </div>
@@ -56,6 +58,10 @@ export default class App extends React.Component{
                             <Route path='*' element={<h2>404. Wrong page</h2>}></Route>
                         </Routes>    
                         
+                    </div>
+
+                    <div className={styles.footer}>
+                        <Footer />
                     </div>
                     
                 </div> 

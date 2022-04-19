@@ -1,53 +1,50 @@
 .cardWrapper{
-    height: 100%;
-    width: auto;
     display: grid;
+    min-height: 100%;
     grid-template-areas: 
     'header'
     'card';
-    grid-template-rows: 30px auto;
+    grid-template-rows: auto 1fr;
+    gap: 8px;
+
 }
 
 
 .cardHeader{
-    height: auto;
-    width: auto;
     grid-area: header;
-    margin-top: 5px;
-    margin-left: 20px;
-    margin-right: 20px;
+    color: var(--grey-main);
+    font-weight: 200;
+    font-size: 16px;
 }
 
 .card{
     grid-area: card;
     display: grid;
+    gap: 15px;
     grid-template-areas: 
     'name name'
     'image info';
     grid-template-columns: 250px auto;
-    grid-template-rows: 50px auto;
-    height: auto;
-    width: auto;
+    grid-template-rows: auto 1fr;
+    background-color: var(--primary);
+    border-radius: var(--dist);
+    padding: 15px;
 }
 
 .cardName{
     grid-area: name;
     overflow: hidden;
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--secondary);
+    border-bottom: 1px solid white;
 }
 
 .cardImage{
-    /* background-color: rgb(122, 122, 122); */
     grid-area: image;
     overflow: hidden;
-    margin-top: 10px;
-    margin-left: 20px;
     margin-bottom: auto;
-    border-radius: 20px;
-    height: auto;
-    max-height: auto;
+    border-radius: var(--dist);
     display: flex;
 }
 
@@ -55,16 +52,11 @@
     max-width: 100%; 
     height: auto;
     object-fit: cover
-    
 }
 
 .cardInfo{
     grid-area: info;
     overflow: hidden;
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    height: auto;
+    background-color: var(--primary-light);
+    border-radius: var(--dist);
 }
