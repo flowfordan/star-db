@@ -29,7 +29,7 @@ const withDataList = (View, getData) => {
 
         //set total pages
         componentDidMount(){
-            getData().then((result) => {
+            getData(this.state.currentPage).then((result) => {
                 console.log(result)
                 this.setState({
                     itemList: result.items, 
@@ -37,13 +37,31 @@ const withDataList = (View, getData) => {
                     itemsCount: result.count,
                     pagesCount: this.countTotalPages(result.count, this.state.itemsPerPage),})
             }).catch(this.onError);
-
-            console.log(this.state)
         };
     
 
-        
+        componentDidUpdate(prevProps, prevState){
+            if(this.state.currentPage !== prevState.currentPage){
+                getData(this.state.currentPage).then((result) => {
+                console.log(result)
+                this.setState({
+                    itemList: result.items, 
+                    isLoading: false,
+                    itemsCount: result.count,
+                    pagesCount: this.countTotalPages(result.count, this.state.itemsPerPage),})
+                }).catch(this.onError);
+            }
+            
+        }
 
+        onPageChange = (page) => {
+                console.log(`change page to ${page}`)
+                this.setState({
+                    currentPage: page,
+                    isLoading: true})
+            }
+        
+        
         onError = (err) => {
             this.setState({
                 error: true,
@@ -54,9 +72,7 @@ const withDataList = (View, getData) => {
 
         render(){
 
-            const onPageChange = () => {
-            console.log('change page')
-            }
+            
 
             const {itemList} = this.state;
 
@@ -64,7 +80,7 @@ const withDataList = (View, getData) => {
                 return <Spinner/>
             }
 
-            return (<View data={this.state} {...this.props} onPageChange={onPageChange}/>)
+            return (<View data={this.state} {...this.props} onPageChange={this.onPageChange}/>)
 
         };
     }

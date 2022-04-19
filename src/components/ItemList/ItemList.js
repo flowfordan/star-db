@@ -11,9 +11,10 @@ import { PagesNums } from './PagesNums';
 const ItemList = (props) => {
 
     console.log('item list props', props)
+    const {onPageChange} = props
     const {data} = props;
 
-    const {itemList, isLoading, error, pagesCount} = data;
+    const {itemList, isLoading, error, pagesCount, itemsPerPage, currentPage} = data;
 
     const listItems = itemList.map((item) => {
         const {id} = item;
@@ -76,7 +77,8 @@ const ItemList = (props) => {
                 {renderedContent}
                 
                 <div className={styles.pagesNumbers}>
-                    <PagesNums />
+                    <PagesNums pagesCount={pagesCount} itemsPerPage={itemsPerPage}
+                    currentPage={currentPage} onPageChange={onPageChange}/>
                     
                 </div>
                         

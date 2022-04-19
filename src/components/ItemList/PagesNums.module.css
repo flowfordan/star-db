@@ -1,3 +1,11 @@
 .numsWrapper{
     background-color: var(--green);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pagenumRegular{
+    padding: 5px;
+    
 }

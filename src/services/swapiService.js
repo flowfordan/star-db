@@ -14,9 +14,9 @@ export default class SwapiService {
     };
     
     //getting persons
-    getAllPeople = async () => {
+    getAllPeople = async (page) => {
       //get current page
-      const res = await this.getResource(`/people/?page=3`);
+      const res = await this.getResource(`/people/?page=${page}`);
       console.log('get all people',res)
       return {
         count: res.count,
