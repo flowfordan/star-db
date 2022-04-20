@@ -2,8 +2,6 @@ import React from "react";
 import ItemDetails, { Record } from "../ItemDetails/ItemDetails";
 import SwapiService from "../../services/swapiService";
 import withDataDetails from "../hocHelpers/withDataDetails";
-import { SwapiServiceConsumer } from "../../swapiServiceContext/swapiServiceContext";
-import withSwapiService from "../hocHelpers/withSwapiService";
 
 const swapiService = new SwapiService();
 

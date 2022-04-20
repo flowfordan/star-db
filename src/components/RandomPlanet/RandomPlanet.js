@@ -56,43 +56,42 @@ export default class RandomPlanet extends React.Component {
 
             return(
                 <React.Fragment>
-                    <Box className={`${styles.card} ${styles.basicBox}`}>
-                        <div className={`${styles.cardName} ${styles.typoItemName}`}>
+                    <Box className={styles.card}>
+                        <div className={styles.cardName}>
                             {name}
                         </div>
         
-                        <div className={`${styles.cardImage} ${styles.cardObjBackground}`}>
+                        <div className={styles.cardImage}>
                             <img  className={styles.cardImageBody}
                             alt="Planet" 
                             src={`https://starwars-visualguide.com/assets/img/planets/${id}.jpg`}>
                             </img>
                         </div>
         
-                        <div className={`${styles.cardInfo} 
-                        ${styles.typoItemsInfo}`}>
+                        <div className={styles.cardInfo}>
                             <ul className={styles.infoList}>
         
-                                <li className={styles.infoListGroup}>
-                                    <span className={styles.infoListTerm}>
+                                <li className={styles.infoRow}>
+                                    <span className={styles.infoTerm}>
                                         Population
                                     </span>
-                                    <span className={styles.infoListEl}>
+                                    <span className={styles.infoEl}>
                                         {population}
                                     </span>
                                 </li>
-                                <li className={styles.infoListGroup}>
-                                    <span className={styles.infoListTerm}>
+                                <li className={styles.infoRow}>
+                                    <span className={styles.infoTerm}>
                                         Rotation Period
                                     </span>
-                                    <span className={styles.infoListEl}>
+                                    <span className={styles.infoEl}>
                                         {rotationPeriod}
                                     </span>
                                 </li>
-                                <li className={styles.infoListGroup}>
-                                    <span className={styles.infoListTerm}>
+                                <li className={styles.infoRow}>
+                                    <span className={styles.infoTerm}>
                                         Diameter
                                     </span>
-                                    <span className={styles.infoListEl}>
+                                    <span className={styles.infoEl}>
                                         {diameter}
                                     </span>
                                 </li>
@@ -110,9 +109,9 @@ export default class RandomPlanet extends React.Component {
         const PreloaderView = () => {
             return(
                 <React.Fragment>
-                    <Box className={`${styles.card} ${styles.basicBox}`}>
+                    <Box className={styles.card}>
 
-                        <div className={`${styles.cardName} ${styles.typoItemName}`}>
+                        <div className={styles.cardName}>
                             <Spinner/>
                         </div>
         
@@ -120,7 +119,7 @@ export default class RandomPlanet extends React.Component {
                             <Spinner/>
                         </div>
         
-                        <div className={`${styles.cardInfo} ${styles.typoItemsInfo}`}>
+                        <div className={styles.cardInfo}>
                             <Spinner/>
                         </div>
         

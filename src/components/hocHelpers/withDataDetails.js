@@ -26,7 +26,7 @@ const withDataDetails = (View, getData, getImage) => {
     
     
         componentDidUpdate(prevProps){
-            if(this.props.itemId != prevProps.itemId){
+            if(this.props.itemId !== prevProps.itemId){
                this.updateItem();
                this.setState({isLoading: true})
             }

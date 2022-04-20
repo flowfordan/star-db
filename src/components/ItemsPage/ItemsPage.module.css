@@ -5,6 +5,7 @@
     'list info';
     grid-template-columns: minmax(200px, 350px) minmax(auto,1fr);
     gap: 20px;
+    min-height: 100%;
 }
 
 .itemsList{

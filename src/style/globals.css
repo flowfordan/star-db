@@ -1,11 +1,12 @@
 html,
 body {
 	margin: 0;
-	padding: 5px;
+	padding: 0 5px;
 	color: var(--grey-light);
 	background: #23282e;
 
 	font-family: 'Lexend Deca', sans-serif;
+	font-weight: 300;
     
 }
 

@@ -8,20 +8,18 @@ import { useParams } from 'react-router-dom';
 
 const Record = ({ currentItem, field, label }) => {
     return(
-        <li className={styles.infoListGroup}>
-            <span className={styles.infoListTerm}>
+        <li className={styles.infoRow}>
+            <span className={styles.infoTerm}>
                 {label}
             </span>
-            <span className={styles.infoListEl}>
+            <span className={styles.infoEl}>
                 {currentItem[field]}
             </span>
         </li> 
     )
 };
 
-export {
-    Record
-};
+export { Record };
 
 
 const ItemDetails = (props) => {
@@ -36,22 +34,21 @@ const ItemDetails = (props) => {
 
             return(
                 <React.Fragment>
-                    <Box className={`${styles.card} ${styles.basicBox}`}>
-                        <div className={`${styles.cardName} ${styles.typoItemName}`}>
+                    <Box className={styles.card}>
+                        <div className={styles.cardName}>
                             {name}
                         </div>
-                        <div className={`${styles.cardImage} ${styles.cardObjBackground}`} >
+                        <div className={styles.cardImage}>
                             <img  className={styles.cardImageBody}
                             src={image}
-                            alt={`${props.itemType}`}>
+                            alt={props.itemType}>
                             </img>
                         </div>
                 
-                        <div className={`${styles.cardInfo} 
-                        ${styles.typoItemsInfo}`}>
+                        <div className={styles.cardInfo}>
                             <ul className={styles.infoList}>
                                 {
-                                React.Children.map(props.children, 
+                                    React.Children.map(props.children, 
                                     (child) => {
                                         return React.cloneElement(child, {currentItem})})
                                 }
@@ -66,7 +63,7 @@ const ItemDetails = (props) => {
         const PreloaderView = () => {
             return(
                 <React.Fragment>
-                    <Box className={styles.basicBox}>
+                    <Box>
                         <Spinner />
                     </Box>
                 </React.Fragment>
@@ -81,7 +78,7 @@ const ItemDetails = (props) => {
 
         return(
             <div className={styles.cardWrapper}>
-            <div className={`${styles.typoChunkHeader} ${styles.cardHeader}`}>
+            <div className={styles.cardHeader}>
                 {props.itemType}
             </div>
                 {errorMessage}

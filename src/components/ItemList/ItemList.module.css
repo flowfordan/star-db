@@ -28,6 +28,7 @@
     'pages';
     grid-template-rows: 1fr auto ;
     gap: 8px;
+    padding-left: var(--dist);
     
 }
 
@@ -35,7 +36,7 @@
     grid-area: list;
     background-color: var(--primary-light);
     border-radius: var(--dist);
-    padding: var(--dist) 0 var(--dist) var(--dist);
+    padding: var(--dist) 0;
 }
 
 .listItem {
@@ -43,7 +44,7 @@
 }
 
 .link, .linkActive {
-    padding: 5px;
+    padding: 5px var(--dist);
     
 }
 

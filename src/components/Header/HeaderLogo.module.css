@@ -4,13 +4,19 @@
  
 }
 
-.letterWrapper{
-    color: white;
+.letterWrapper, .letterWrapperAdd{
+    color: var(--grey-light);
     font-size: 30px;
     line-height: 40px;
+    font-weight: 700;
+    padding-right: 10px;  
 }
 
-.letterWrapper:hover{
+.letterWrapperAdd{
+    color: var(--secondary);
+}
+
+.letterWrapper:hover, .letterWrapperAdd:hover{
     color: rgb(124, 124, 134);
 }
 

@@ -59,3 +59,17 @@
     border-radius: var(--dist);
     background-color: var(--primary-light);
 }
+
+.infoRow{
+    padding: 10px 0;
+    border-bottom: 1px solid var(--grey-dark);
+}
+
+.infoTerm{
+    color: var(--white);
+    padding-right: 20px;
+}
+
+.infoEl{
+
+}
