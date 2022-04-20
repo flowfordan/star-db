@@ -1,39 +1,50 @@
 .headerWrapper{
-    height: 100%;
     display: grid;
     grid-template-areas: 
     'logo menu';
-    grid-template-columns: 300px auto;
-}
-
-.headerWrapper a{
-    text-decoration: none
+    grid-template-columns: 1fr auto;
+    background-color: var(--primary);
+    border-radius: var(--dist);
+    overflow: hidden;
 }
 
 .headerLogo{
-    background-color: rgb(70, 70, 70);
     grid-area: logo;
-    margin-top: 10px;
-    margin-left: 5px;
-    margin-bottom: 10px;
-    height: 60px;
+    padding: var(--dist);
 }
 
 .headerMenuWrapper{
-      height: auto;
     grid-area: menu;
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-bottom: 10px;
-    margin-right: 0;
 }
 
 .headerMenu{
     height: 100%;
-    border-radius: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
     display: flex;
     align-items: stretch;
-    margin-right: 5px;
+    font-size: 18px;
+    padding-right: var(--dist);
+    
+}
+
+.menuItem, .menuItemActive{
+    display: flex;
+    /* border-right: 1px solid var(--grey-dark); */
+    align-items: center;
+    justify-content: center;
+    text-decoration: underline;
+    transition: all 0.2s;
+    padding: 0 20px; 
+}
+
+.menuItem:hover{
+    background-color: var(--primary-hover);
+    text-decoration: none;
+}
+
+
+.menuItemActive{
+    color: var(--white);
+    text-decoration: none;
+    border-bottom: 5px solid var(--white);
+    background-color: var(--primary-light);
 }

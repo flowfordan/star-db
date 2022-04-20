@@ -8,8 +8,6 @@
     ". header ."
     ". body ."
     "footer footer footer";
-    
-
 }
 
 .header{
@@ -35,10 +33,38 @@
     grid-area: random;
 }
 
+.items{
+    grid-area: items;
+}
+
 .welcomePage {
 
 }
 
 .errorPage {
 
+}
+
+@media (max-width: 765px) {
+    .appWrapper{
+        grid-template-columns: minmax(320px, 1fr);
+        grid-template-areas: 
+        "header"
+        "body"
+        "footer";
+    }
+
+    .body{
+        grid-area: body;
+        display: grid;
+        grid-template-areas: 
+        'items';
+
+        gap: 20px;
+    
+    }
+
+    .itemRandom{
+        visibility: hidden;
+    }
 }

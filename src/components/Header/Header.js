@@ -11,21 +11,19 @@ export const Header = () => {
                     <HeaderLogo />
                 </div>
             </NavLink>
+
             <div className={styles.headerMenuWrapper}>
-                <div className={`${styles.headerMenu}`}>
+                <div className={styles.headerMenu}>
                     
-                    <NavLink to="/characters" 
-                    >
+                    <NavLink to="/characters" className={({isActive})=> isActive? styles.menuItemActive : styles.menuItem}>
                         <span>Characters</span>
                     </NavLink>
                     
-                    <NavLink to="/starships"
-                    >
+                    <NavLink to="/starships" className={({isActive})=> isActive? styles.menuItemActive : styles.menuItem}>
                         <span >Starships</span>
                     </NavLink>
 
-                    <NavLink to="/planets" 
-                    >
+                    <NavLink to="/planets" className={({isActive})=> isActive? styles.menuItemActive : styles.menuItem}>
                         <span >Planets</span>
                     </NavLink>
                 </div>

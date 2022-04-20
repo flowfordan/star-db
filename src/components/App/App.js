@@ -46,17 +46,20 @@ export default class App extends React.Component{
                     
 
                     <div className={styles.body}>
+                        
                         <div className={styles.itemRandom}>
                             <RandomPlanet />
                         </div>
 
-                        <Routes>
-                            <Route path='/' element={<h2>Welcome to StarDB</h2>}></Route>
-                            <Route path='/characters/*' element={<CharactersPage/>}></Route>
-                            <Route path='/planets/*' element={<PlanetsPage/>}></Route>
-                            <Route path='/starships/*' element={<StarshipsPage/>}></Route>
-                            <Route path='*' element={<h2>404. Wrong page</h2>}></Route>
-                        </Routes>    
+                        <div className={styles.items}>
+                            <Routes>
+                                <Route path='/' element={<h2>Welcome to StarDB</h2>}></Route>
+                                <Route path='/characters/*' element={<CharactersPage/>}></Route>
+                                <Route path='/planets/*' element={<PlanetsPage/>}></Route>
+                                <Route path='/starships/*' element={<StarshipsPage/>}></Route>
+                                <Route path='*' element={<h2>404. Wrong page</h2>}></Route>
+                            </Routes>  
+                        </div>  
                         
                     </div>
 

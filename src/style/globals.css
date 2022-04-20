@@ -1,7 +1,7 @@
 html,
 body {
 	margin: 0;
-	padding: 0;
+	padding: 5px;
 	color: var(--grey-light);
 	background: #23282e;
 
@@ -54,5 +54,5 @@ ul {
 
 	--font-family: 'Lexend Deca', sans-serif;
 
-	--dist: 10px;
+	--dist: 15px;
 }

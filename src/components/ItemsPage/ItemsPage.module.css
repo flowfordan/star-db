@@ -14,3 +14,15 @@
 .itemInfo{
     grid-area: info;
 }
+
+@media (max-width: 765px) {
+    .items{
+        grid-area: items;
+        display: grid;
+        grid-template-areas: 
+        'list'
+        'info';
+        grid-template-columns: minmax(350px,1fr);
+        gap: 20px;
+    }
+}

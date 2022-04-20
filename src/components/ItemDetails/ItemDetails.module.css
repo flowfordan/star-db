@@ -28,16 +28,15 @@
     grid-template-rows: auto 1fr;
     background-color: var(--primary);
     border-radius: var(--dist);
-    padding: 15px;
+    padding: var(--dist) 0 var(--dist) var(--dist);
 }
 
 .cardName{
     grid-area: name;
-    overflow: hidden;
     font-weight: 400;
     font-size: 20px;
     color: var(--secondary);
-    border-bottom: 1px solid white;
+    border-bottom: 1px solid var(--grey-main);
 }
 
 .cardImage{

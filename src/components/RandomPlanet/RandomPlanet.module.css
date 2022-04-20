@@ -10,17 +10,16 @@
 
 
 .cardHeader{
-    height: auto;
-    width: auto;
+    color: var(--grey-main);
     grid-area: header;
-    margin-top: 5px;
-    margin-left: 20px;
-    margin-right: 20px;
+    font-weight: 200;
+    font-size: 16px;
 }
 
 .card{
     grid-area: card;
     display: grid;
+    gap: 15px;
     grid-template-areas: 
     'name name'
     'image info';
@@ -28,25 +27,22 @@
     grid-template-rows: auto 1fr;
     background-color: var(--primary);
     border-radius: var(--dist);
+    padding: var(--dist) 0 var(--dist) var(--dist);
 }
 
 .cardName{
     grid-area: name;
-    overflow: hidden;
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
+    font-weight: 400;
+    font-size: 20px;
+    color: var(--secondary);
+    border-bottom: 1px solid var(--grey-main);
     
 }
 
 .cardImage{
-    /* background-color: rgb(122, 122, 122); */
     grid-area: image;
     overflow: hidden;
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-bottom: 20px;
-    border-radius: 20px;
+    border-radius: var(--dist);
     height: 200px;
 }
 
@@ -54,16 +50,12 @@
     max-width: 100%; 
     height: auto; 
     object-fit: cover
-    
 }
 
 .cardInfo{
     grid-area: info;
     overflow: hidden;
-    margin-top: 10px;
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-bottom: 20px;
-    border-radius: 20px;
-    height: auto;
+    padding: var(--dist);
+    border-radius: var(--dist);
+    background-color: var(--primary-light);
 }
