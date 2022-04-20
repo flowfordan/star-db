@@ -1,0 +1,7 @@
+.spinnerWrapper{
+    height: 100%;
+    display: flex;
+    border-radius: var(--dist);
+    justify-content: center;
+    align-items: center;
+}

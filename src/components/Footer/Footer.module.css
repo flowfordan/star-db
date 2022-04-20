@@ -1,0 +1,27 @@
+.footerWrapper{
+    display: grid;
+    grid-template-areas: 
+    "info credit";
+    grid-template-columns: 1fr auto ;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.footerWrapper a{
+    color: var(--secondary);
+    text-decoration: underline;
+    display:inline;
+}
+
+.footerWrapper a:hover{
+    text-decoration: none;
+}
+
+.footerInfo{
+    grid-area: info;
+    display: inline-block;
+}
+
+.footerCredit{
+    grid-area: credit;
+}

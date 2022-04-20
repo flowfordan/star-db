@@ -62,11 +62,9 @@ const ItemDetails = (props) => {
 
         const PreloaderView = () => {
             return(
-                <React.Fragment>
-                    <Box>
-                        <Spinner />
-                    </Box>
-                </React.Fragment>
+                <>
+                    <Spinner />
+                </>
 
             )
         };

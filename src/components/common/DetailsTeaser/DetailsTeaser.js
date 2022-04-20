@@ -1,17 +1,16 @@
 import React from "react";
 import { Box } from "@mui/material";
+import styles from './Details.module.css';
 
 const DetailsTeaser = () => {
     return(
-        <React.Fragment>
-            <div >
-                    
-                    
-                        Select Item from the List
-                    
-                    
-                    </div>
-                </React.Fragment>
+        <>
+            <div className={styles.detailsWrapper}>
+
+                {`< Select Item from the List`} 
+
+            </div>
+        </>
         
     )
 }

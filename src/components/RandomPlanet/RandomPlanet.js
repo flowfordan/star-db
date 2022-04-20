@@ -138,7 +138,7 @@ export default class RandomPlanet extends React.Component {
         return (
             <div className={styles.cardWrapper}>
                          <div className={styles.cardHeader}>
-                             Random Planet
+                             random planet
                          </div>
                         {errorMessage}
                         {loading}
