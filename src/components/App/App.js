@@ -36,7 +36,7 @@ export default class App extends React.Component{
 
         return(
         <SwapiServiceProvider value={this.swapiService}>
-            <Router>
+            <Router basename='/star-db'>
 
                 <div className={styles.appWrapper}>
 
