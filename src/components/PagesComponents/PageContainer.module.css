@@ -1,0 +1,11 @@
+.pageWrapper{
+    padding: 50px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--primary);
+    border-radius: var(--dist);
+    font-size: 16px;
+}

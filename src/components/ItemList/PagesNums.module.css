@@ -17,6 +17,8 @@
     background-color: var(--primary-hover);
 }
 
+
+
 .pagenumActive{
     border-bottom: 2px solid var(--white);
     color: var(--white);

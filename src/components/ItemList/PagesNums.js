@@ -25,9 +25,9 @@ export const PagesNums = (props) => {
 
     return(
         <div className={styles.numsWrapper}>
-        <span className={styles.pagenumRegular} onClick={() => onPageChange(1)}>{`<<`}</span>
+        <button disabled={currentPage === 1} className={styles.pagenumRegular} onClick={() => onPageChange(1)}>{`<<`}</button>
             {numbersRender}
-         <span className={styles.pagenumRegular} onClick={() => onPageChange(pagesCount)}>{`>>`}</span>
+         <button disabled={currentPage === pagesCount} className={styles.pagenumRegular} onClick={() => onPageChange(pagesCount)}>{`>>`}</button>
         </div>
     )
 }

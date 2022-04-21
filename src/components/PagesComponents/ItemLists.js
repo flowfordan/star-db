@@ -1,4 +1,3 @@
-import React from "react";
 import ItemList from "../ItemList/ItemList";
 import withDataList from "../hocHelpers/withDataList";
 import SwapiService from "../../services/swapiService";

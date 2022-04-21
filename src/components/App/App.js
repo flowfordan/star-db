@@ -8,6 +8,7 @@ import { SwapiServiceProvider } from '../../swapiServiceContext/swapiServiceCont
 import StarshipsPage from '../ItemsPage/StarshipsPage';
 import PlanetsPage from '../ItemsPage/PlanetsPage';
 import CharactersPage from '../ItemsPage/CharactersPage';
+import WelcomePage from '../PagesComponents/WelcomePage';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 export default class App extends React.Component{
@@ -53,7 +54,7 @@ export default class App extends React.Component{
 
                         <div className={styles.items}>
                             <Routes>
-                                <Route path='/' element={<h2>Welcome to StarDB</h2>}></Route>
+                                <Route path='/' element={<WelcomePage />}></Route>
                                 <Route path='/characters/*' element={<CharactersPage/>}></Route>
                                 <Route path='/planets/*' element={<PlanetsPage/>}></Route>
                                 <Route path='/starships/*' element={<StarshipsPage/>}></Route>

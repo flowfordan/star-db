@@ -1,6 +1,5 @@
 import React from "react";
-import ErrorIndicator from "../common/ErrorIndicator/ErrorIndicator";
-import ItemDetails, {Record} from "../ItemDetails/ItemDetails";
+import {Record} from "../ItemDetails/ItemDetails";
 import { useParams } from "react-router-dom";
 import { CharacterDetails } from "../PagesComponents/Details";
 

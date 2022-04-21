@@ -44,6 +44,7 @@
     overflow: hidden;
     border-radius: var(--dist);
     height: 200px;
+    background-color: var(--primary-light);
 }
 
 .cardImageBody{

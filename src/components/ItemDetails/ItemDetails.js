@@ -3,7 +3,6 @@ import { Box } from '@mui/material';
 import React from 'react';
 import Spinner from '../common/Spinner/Spinner';
 import ErrorIndicator from '../common/ErrorIndicator/ErrorIndicator';
-import { useParams } from 'react-router-dom';
 
 
 const Record = ({ currentItem, field, label }) => {

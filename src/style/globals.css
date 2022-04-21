@@ -18,6 +18,17 @@ a{
     height:100%;
 }
 
+button{
+	border: none;
+	cursor: pointer;
+	outline: none;
+	background-color: var(--primary-light);
+    color: var(--grey-light);
+}
+
+button:disabled{
+	color: var(--grey-dark);
+}
 
 
 ul {

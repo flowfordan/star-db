@@ -45,6 +45,7 @@
     margin-bottom: auto;
     border-radius: var(--dist);
     display: flex;
+    background-color: var(--primary-light);
 }
 
 .cardImageBody{

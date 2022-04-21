@@ -47,7 +47,7 @@
 
 @media (max-width: 765px) {
     .appWrapper{
-        grid-template-columns: minmax(320px, 1fr);
+        grid-template-columns: minmax(400px, 1fr);
         grid-template-areas: 
         "header"
         "body"
@@ -56,11 +56,12 @@
 
     .body{
         grid-area: body;
-        display: grid;
-        grid-template-areas: 
-        'items';
-
-        gap: 20px;
+    display: grid;
+    grid-template-areas: 
+    'random'
+    'items';
+    grid-template-rows: 0 1fr;
+    gap: 20px;
     
     }
 

@@ -9,7 +9,8 @@
     font-size: 30px;
     line-height: 40px;
     font-weight: 700;
-    padding-right: 10px;  
+    padding-right: 10px;
+    transition: all 0.8s;  
 }
 
 .letterWrapperAdd{

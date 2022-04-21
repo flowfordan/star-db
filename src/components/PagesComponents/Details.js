@@ -1,5 +1,4 @@
-import React from "react";
-import ItemDetails, { Record } from "../ItemDetails/ItemDetails";
+import ItemDetails from "../ItemDetails/ItemDetails";
 import SwapiService from "../../services/swapiService";
 import withDataDetails from "../hocHelpers/withDataDetails";
 
