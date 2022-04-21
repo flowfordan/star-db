@@ -28,7 +28,6 @@
 
 .menuItem, .menuItemActive{
     display: flex;
-    /* border-right: 1px solid var(--grey-dark); */
     align-items: center;
     justify-content: center;
     text-decoration: underline;
