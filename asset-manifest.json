@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/star-db/static/css/main.18b14115.css",
+    "main.js": "/star-db/static/js/main.fb87318a.js",
+    "index.html": "/star-db/index.html",
+    "static/media/Double Ring-1.5s-200px.svg": "/star-db/static/media/Double Ring-1.5s-200px.548a16efcc296c8935fe791299348bb6.svg",
+    "main.18b14115.css.map": "/star-db/static/css/main.18b14115.css.map",
+    "main.fb87318a.js.map": "/star-db/static/js/main.fb87318a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.18b14115.css",
+    "static/js/main.fb87318a.js"
+  ]
+}
